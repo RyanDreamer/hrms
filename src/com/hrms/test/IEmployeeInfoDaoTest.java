@@ -23,6 +23,15 @@ public class IEmployeeInfoDaoTest {
 		for (int i=0; i<list.size(); i++) {
 			list.get(i).outPut();
 		}
+		System.out.println("************");
+		List<EmployeeInfo> list2 = emp.findEmployeeByAge(17);
+		List<EmployeeInfo> list3 = emp.findEmployeeByName("Mary");
+		for (int i=0; i<list2.size(); i++) {
+			list2.get(i).outPut();
+		}
+		for (int i=0; i<list3.size(); i++) {
+			list3.get(i).outPut();
+		}
 	}
 
 	@Test
@@ -30,7 +39,27 @@ public class IEmployeeInfoDaoTest {
 		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
 		int result = 0; //受影响的行数
 		
-		result = emp.addEmployee(4, "Richiel", 18, "男", "LS", "Music", 3, "学士", "no", 1);
+		result = emp.addEmployee(5, "Mary", 18, "女", "NewYork", "UI", 3, "学士", "no", 1);
+	}
+	
+	@Test
+	public void testRmEmployee() {
+		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
+		int result = 0; //受影响的行数
+		
+		result = emp.rmEmployee(1);
+	}
+	
+	@Test
+	public void testUpdateEmployee() {
+		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
+		int result = 0; //受影响的行数
+		
+		emp.updateSex(2, "女");
+		emp.updateExperience(2, 10);
+		emp.updateEmployee(6, "Ryan", 17, "男"
+				, "UK", "DJ", 3, "doctor", "yes", 1);
+		System.out.println("成功操作");
 	}
 
 }
