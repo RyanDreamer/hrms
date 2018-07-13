@@ -40,8 +40,11 @@ public class DeptDaoImpl implements IDeptDao {
 		return list;
 	}
 	
+	/**
+	 * 条件查询部门信息
+	 */
 	@Override
-	public List<Dept> findEmployee(String col, Object param){
+	public List<Dept> findDept(String col, Object param){
 		baseDao = new BaseDao();
 		List<Dept> list = new ArrayList<Dept>();
 		String sql = "select * from dept where "+col+"=?";
@@ -94,8 +97,8 @@ public class DeptDaoImpl implements IDeptDao {
 		return result;
 	}
 	
-	/* (non-Javadoc)删除操作
-	 * @see com.hrms.dao.IDeptDao#rmDept(int)
+	/* 
+	 * 删除操作
 	 */
 	@Override
 	public int rmDept(String name) {
@@ -151,7 +154,7 @@ public class DeptDaoImpl implements IDeptDao {
 		String sql = "update dept set "+col+"=? where name=?";
 		List<Object> params = new ArrayList<Object>();
 		params.add(value);
-		//确定要修改的员工号
+		//确定要修改的部门名
 		params.add(name);
 		//执行
 		result = baseDao.executeUpdate(sql, params);

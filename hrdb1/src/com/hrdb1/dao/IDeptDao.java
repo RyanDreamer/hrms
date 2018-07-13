@@ -4,16 +4,16 @@ import com.hrdb1.entity.Dept;
 public interface IDeptDao {
 	
 	/**
-	 * 查询所有员工信息
+	 * 查询所有部门信息
 	 * @param datas
 	 * @return
 	 */
 	public List<Dept> showDept();
 	
-	public List<Dept> findEmployee(String col, Object param);
+	public List<Dept> findDept(String col, Object param);
 	
 	/**
-	 * 插入一条员工信息
+	 * 插入一条部门信息
 	 * @param name
 	 * @param minister
 	 * @param sdept
