@@ -1,11 +1,7 @@
 package com.hrdb1.dao;
-import java.sql.Date;
+
 import java.util.List;
-
-import com.hrdb1.entity.Dept;
 import com.hrdb1.entity.Entry;
-
-
 
 public interface IEntryDao {
 	/**
@@ -16,7 +12,7 @@ public interface IEntryDao {
 	
 public List<Entry> showEntry();
 
-public List<Entry> findEntry(String col, Object param);
+public List<Entry> findEntry(String col, String param);
 	
 	/**
 	 * 插入一条入职信息
@@ -27,7 +23,7 @@ public List<Entry> findEntry(String col, Object param);
 	 * @return
 	 */
 	
-	public int addEntry(int eid,Date date, int jid, String dept );
+	public int addEntry(int eid,String date, int jid, String dept );
 	
 	/**
 	 * 根据部门名删除部门数据
@@ -40,7 +36,8 @@ public List<Entry> findEntry(String col, Object param);
 	 * 更新部门的信息，可分条改，也可全部改
 	 * @return 受影响的行数
 	 */
-	public int updateEntry(int eid,Date date, int jid, String dept);
+	public int updateEntry(int eid,String date, int jid, String dept);
+	
 	public int updateEntry(int eid, String col, String value);
 	
 

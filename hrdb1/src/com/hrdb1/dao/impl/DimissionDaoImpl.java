@@ -1,14 +1,12 @@
 package com.hrdb1.dao.impl;
+
 import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.hrdb1.dao.IDimissionDao;
-import com.hrdb1.entity.Dept;
 import com.hrdb1.entity.Dimission;
 import com.hrdb1.util.BaseDao;
-import java.sql.Date;
-
 
 public class DimissionDaoImpl implements IDimissionDao {
 	
@@ -30,7 +28,7 @@ public class DimissionDaoImpl implements IDimissionDao {
 		try {
 			while (rs.next()) {
 				Integer eid = rs.getInt("eid");
-				Date date = rs.getDate("date");
+				String date = rs.getString("date");
 				Integer jid = rs.getInt("jid");
 				String reason = rs.getString("reason");
 				
@@ -56,7 +54,7 @@ public class DimissionDaoImpl implements IDimissionDao {
 		try {
 			while (rs.next()) {
 				Integer eid = rs.getInt("eid");
-				Date date = rs.getDate("date");
+				String date = rs.getString("date");
 				Integer jid = rs.getInt("jid");
 				String reason = rs.getString("reason");
 				
@@ -72,7 +70,7 @@ public class DimissionDaoImpl implements IDimissionDao {
 
 
 	@Override
-	public int addDimission(int eid, Date date, int jid, String reason) {
+	public int addDimission(int eid, String date, int jid, String reason) {
 		// TODO Auto-generated method stub
         baseDao = new BaseDao();
 		
@@ -135,7 +133,7 @@ public class DimissionDaoImpl implements IDimissionDao {
 	 * 更新操作
 	 */
 	@Override
-	public int updateDimission(int eid,Date date, int jid, String reason) {
+	public int updateDimission(int eid,String date, int jid, String reason) {
 		int result = 0;
 		//先删再插入
 		rmDimission(eid);

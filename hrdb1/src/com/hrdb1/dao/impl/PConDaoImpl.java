@@ -3,11 +3,8 @@ package com.hrdb1.dao.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
-
 import com.hrdb1.dao.IPConDao;
-import com.hrdb1.entity.Job;
 import com.hrdb1.entity.PCon;
 import com.hrdb1.util.BaseDao;
 
@@ -32,8 +29,8 @@ private BaseDao baseDao;
 			while (rs.next()) {
 				Integer id = rs.getInt("id");
 				Integer salary = rs.getInt("salary");
-				Date startdate = rs.getDate("startdate");
-				Date deadline = rs.getDate("deadline");
+				String startdate = rs.getString("startdate");
+				String deadline = rs.getString("deadline");
 				Integer eid = rs.getInt("eid");
 				Integer jid = rs.getInt("jid");
 				
@@ -60,8 +57,8 @@ private BaseDao baseDao;
 			while (rs.next()) {
 				Integer id = rs.getInt("id");
 				Integer salary  = rs.getInt("salary");
-				Date startDate = rs.getDate("startDate");
-				Date deadline = rs.getDate("deadline");
+				String startDate = rs.getString("startDate");
+				String deadline = rs.getString("deadline");
 				Integer eid  = rs.getInt("eid");
 				Integer jid  = rs.getInt("jid");
 				
@@ -76,7 +73,7 @@ private BaseDao baseDao;
 	}
 
 	@Override
-	public int addPCon(int id, int salary, Date startdate, Date deadline, int eid, int jid) {
+	public int addPCon(int id, int salary, String startdate, String deadline, int eid, int jid) {
 		// TODO Auto-generated method stub
         baseDao = new BaseDao();
 		
@@ -141,7 +138,7 @@ private BaseDao baseDao;
 	 * 更新操作
 	 */
 	@Override
-	public int updatePCon(int id, int salary, Date startdate, Date deadline, int eid, int jid) {
+	public int updatePCon(int id, int salary, String startdate, String deadline, int eid, int jid) {
 		int result = 0;
 		//先删再插入
 		rmPCon(id);

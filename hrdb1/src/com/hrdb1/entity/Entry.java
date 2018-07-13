@@ -1,13 +1,11 @@
 package com.hrdb1.entity;
 
-import java.util.Date;
-
 public class Entry {
 	int eid;
-	Date date;
+	String date;
 	int jid;
 	String dept;
-	public Entry(int eid, Date date, int jid, String dept) {
+	public Entry(int eid, String date, int jid, String dept) {
 		super();
 		this.eid = eid;
 		this.date = date;
@@ -20,10 +18,10 @@ public class Entry {
 	public void setEid(int eid) {
 		this.eid = eid;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public int getJid() {

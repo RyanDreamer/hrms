@@ -1,8 +1,6 @@
 package com.hrdb1.dao;
-import java.sql.Date;
-import java.util.List;
 
-import com.hrdb1.entity.Job;
+import java.util.List;
 import com.hrdb1.entity.PCon;
 
 public interface IPConDao {
@@ -28,7 +26,7 @@ public List<PCon> findPCon(String col, String param);
 	 * @return
 	 */
 	
-	public int addPCon(int id, int salary, Date startdate, Date deadline, int eid, int jid);
+	public int addPCon(int id, int salary, String startdate, String deadline, int eid, int jid);
 	
 	/**
 	 * 根据合同序号删除部门数据
@@ -41,7 +39,8 @@ public List<PCon> findPCon(String col, String param);
 	 * 更新试用员工的信息，可分条改，也可全部改
 	 * @return 受影响的行数
 	 */
-	public int updatePCon(int id, int salary, Date startdate, Date deadline, int eid, int jid);
+	public int updatePCon(int id, int salary, String startdate, String deadline, int eid, int jid);
+	
 	public int updatePCon(int id, String col, String value);
 
 }

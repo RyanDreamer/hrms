@@ -3,11 +3,8 @@ package com.hrdb1.dao.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import java.util.List;
-
 import com.hrdb1.dao.IJobDao;
-import com.hrdb1.entity.Dept;
 import com.hrdb1.entity.Job;
 import com.hrdb1.util.BaseDao;
 

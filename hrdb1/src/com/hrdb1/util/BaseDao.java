@@ -5,11 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.List;
-
 import java.util.ResourceBundle;
-
 
 /**
  * 用来做数据的一个基础连接、关闭、增、删、改、查

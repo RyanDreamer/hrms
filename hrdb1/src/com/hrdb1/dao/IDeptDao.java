@@ -1,6 +1,8 @@
 package com.hrdb1.dao;
+
 import java.util.List;
 import com.hrdb1.entity.Dept;
+
 public interface IDeptDao {
 	
 	/**
@@ -33,6 +35,7 @@ public interface IDeptDao {
 	 * @return 受影响的行数
 	 */
 	public int updateDept(String name, int minister, String sdept);
+	
 	public int updateDept(String name, String col, String value);
 }
 

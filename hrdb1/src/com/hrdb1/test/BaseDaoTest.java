@@ -1,8 +1,6 @@
 package com.hrdb1.test;
 
-
 import org.junit.Test;
-
 import com.hrdb1.util.BaseDao;
 
 public class BaseDaoTest {

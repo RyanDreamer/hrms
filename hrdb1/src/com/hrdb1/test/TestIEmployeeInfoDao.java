@@ -1,17 +1,10 @@
 package com.hrdb1.test;
 
-import java.sql.Date;
 import java.util.List;
-
 import org.junit.Test;
-
-import com.hrdb1.dao.IDimissionDao;
 import com.hrdb1.dao.IEmployeeInfoDao;
-import com.hrdb1.dao.impl.DimissionDaoImpl;
 import com.hrdb1.dao.impl.EmployeeInfoDaoImpl;
-import com.hrdb1.entity.Dimission;
 import com.hrdb1.entity.EmployeeInfo;
-
 
 public class TestIEmployeeInfoDao {
 

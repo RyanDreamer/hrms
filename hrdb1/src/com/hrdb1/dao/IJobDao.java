@@ -1,8 +1,6 @@
 package com.hrdb1.dao;
 
 import java.util.List;
-
-import com.hrdb1.entity.Dept;
 import com.hrdb1.entity.Job;
 
 
@@ -43,6 +41,7 @@ public List<Job> findJob(String col, Object param);
 	 * @return 受影响的行数
 	 */
 	public int updateJob(int jid, String title, String dept, int countDemand, int countReal, int salary);
+	
 	public int updateJob(int jid, String col, String value);
 
 }

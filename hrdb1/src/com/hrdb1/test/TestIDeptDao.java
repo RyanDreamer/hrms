@@ -1,9 +1,7 @@
 package com.hrdb1.test;
 
 import java.util.List;
-
 import org.junit.Test;
-
 import com.hrdb1.dao.IDeptDao;
 import com.hrdb1.dao.impl.DeptDaoImpl;
 import com.hrdb1.entity.Dept;

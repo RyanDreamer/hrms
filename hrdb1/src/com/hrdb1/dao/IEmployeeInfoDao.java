@@ -2,7 +2,6 @@ package com.hrdb1.dao;
 
 import java.util.List;
 
-import com.hrdb1.entity.Dept;
 import com.hrdb1.entity.EmployeeInfo;
 
 public interface IEmployeeInfoDao {
@@ -47,5 +46,6 @@ public interface IEmployeeInfoDao {
 	 */
 	public int updateEmployeeInfo(int eid, String name, int age, String sex, String hometowm, String oldjob, int experience,
 			String education, String cet4, int family);
+	
 	public int updateEmployeeInfo(int eid, String col, String value);
 }

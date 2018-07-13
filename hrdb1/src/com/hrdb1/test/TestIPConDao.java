@@ -1,15 +1,9 @@
 package com.hrdb1.test;
 
-
 import org.junit.Test;
-import java.sql.Date;
 import java.util.List;
-
-import com.hrdb1.dao.IJobDao;
 import com.hrdb1.dao.IPConDao;
-import com.hrdb1.dao.impl.JobDaoImpl;
 import com.hrdb1.dao.impl.PConDaoImpl;
-import com.hrdb1.entity.Job;
 import com.hrdb1.entity.PCon;
 
 public class TestIPConDao {
@@ -17,8 +11,8 @@ public class TestIPConDao {
 	@Test
 	public void testaddPCon() {
 		IPConDao emp = new PConDaoImpl();
-		emp.addPCon(1, 1234, Date.valueOf("2010-05-07"), Date.valueOf("2005-06-07"), 1, 1);
-		emp.addPCon(2, 3324, Date.valueOf("2005-07-07"), Date.valueOf("2001-09-07"), 2, 2);
+		emp.addPCon(1, 1234, "2010-05-07", "2005-06-07", 1, 1);
+		emp.addPCon(2, 3324, "2005-07-07", "2001-09-07", 2, 2);
 	}
 	
 	@Test
@@ -65,7 +59,7 @@ public class TestIPConDao {
 	public void testupdatePCon() {
 		IPConDao emp = new PConDaoImpl();
 		int result = 0; //受影响的行数	
-		result = emp.updatePCon(1, 1111, Date.valueOf("2000-12-11"), Date.valueOf("2001-02-02"), 1, 1);
+		result = emp.updatePCon(1, 1111, "2000-12-11", "2001-02-02", 1, 1);
 		System.out.println("修改受影响行数:"+result);
 	}
 	

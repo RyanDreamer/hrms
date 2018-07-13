@@ -1,16 +1,14 @@
 package com.hrdb1.entity;
 
-import java.util.Date;
-
 public class PTrans {
 	int eid;
 	int prejob;
 	int nextjob;
 	String predept;
 	String nextdept;
-	Date date;
+	String date;
 	String PS;
-	public PTrans(int eid, int prejob, int nextjob, String predept, String nextdept, Date date, String pS) {
+	public PTrans(int eid, int prejob, int nextjob, String predept, String nextdept, String date, String pS) {
 		super();
 		this.eid = eid;
 		this.prejob = prejob;
@@ -50,10 +48,10 @@ public class PTrans {
 	public void setNextdept(String nextdept) {
 		this.nextdept = nextdept;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getPS() {

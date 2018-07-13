@@ -1,15 +1,13 @@
 package com.hrdb1.entity;
 
-import java.util.Date;
-
 public class PCon {
 	int id;
 	int salary;
-	Date startdate;
-	Date deadline;
+	String startdate;
+	String deadline;
 	int eid;
 	int jid;
-	public PCon(int id, int salary, Date startdate, Date deadline, int eid, int jid) {
+	public PCon(int id, int salary, String startdate, String deadline, int eid, int jid) {
 		super();
 		this.id = id;
 		this.salary = salary;
@@ -30,16 +28,16 @@ public class PCon {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	public Date getStartdate() {
+	public String getStartdate() {
 		return startdate;
 	}
-	public void setStartdate(Date startdate) {
+	public void setStartdate(String startdate) {
 		this.startdate = startdate;
 	}
-	public Date getDeadline() {
+	public String getDeadline() {
 		return deadline;
 	}
-	public void setDeadline(Date deadline) {
+	public void setDeadline(String deadline) {
 		this.deadline = deadline;
 	}
 	public int getEid() {

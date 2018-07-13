@@ -3,11 +3,8 @@ package com.hrdb1.dao.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
-
 import com.hrdb1.dao.IEntryDao;
-import com.hrdb1.entity.Dimission;
 import com.hrdb1.entity.Entry;
 import com.hrdb1.util.BaseDao;
 
@@ -31,7 +28,7 @@ public class EntryDaoImpl implements IEntryDao {
 		try {
 			while (rs.next()) {
 				Integer eid = rs.getInt("eid");
-				Date date = rs.getDate("date");
+				String date = rs.getString("date");
 				Integer jid = rs.getInt("jid");
 				String dept = rs.getString("dept");
 				
@@ -46,7 +43,7 @@ public class EntryDaoImpl implements IEntryDao {
 	}
 	
 	@Override
-	public List<Entry> findEntry(String col, Object param){
+	public List<Entry> findEntry(String col, String param){
 		baseDao = new BaseDao();
 		List<Entry> list = new ArrayList<Entry>();
 		String sql = "select * from entry where "+col+"=?";
@@ -57,7 +54,7 @@ public class EntryDaoImpl implements IEntryDao {
 		try {
 			while (rs.next()) {
 				Integer eid = rs.getInt("eid");
-				Date date = rs.getDate("date");
+				String date = rs.getString("date");
 				Integer jid = rs.getInt("jid");
 				String dept = rs.getString("dept");
 				
@@ -72,7 +69,7 @@ public class EntryDaoImpl implements IEntryDao {
 	}
 
 	@Override
-	public int addEntry(int eid, Date date, int jid, String dept) {
+	public int addEntry(int eid, String date, int jid, String dept) {
 		// TODO Auto-generated method stub
         baseDao = new BaseDao();
 		
@@ -135,7 +132,7 @@ public class EntryDaoImpl implements IEntryDao {
 	 * 更新操作
 	 */
 	@Override
-	public int updateEntry(int eid,Date date, int jid, String dept) {
+	public int updateEntry(int eid,String date, int jid, String dept) {
 		int result = 0;
 		//先删再插入
 		rmEntry(eid);

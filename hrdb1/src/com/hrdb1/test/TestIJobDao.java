@@ -1,15 +1,9 @@
 package com.hrdb1.test;
 
-import java.sql.Date;
 import java.util.List;
-
 import org.junit.Test;
-
-import com.hrdb1.dao.IEntryDao;
 import com.hrdb1.dao.IJobDao;
-import com.hrdb1.dao.impl.EntryDaoImpl;
 import com.hrdb1.dao.impl.JobDaoImpl;
-import com.hrdb1.entity.Entry;
 import com.hrdb1.entity.Job;
 
 public class TestIJobDao {

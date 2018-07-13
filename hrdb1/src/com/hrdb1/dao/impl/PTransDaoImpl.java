@@ -3,11 +3,8 @@ package com.hrdb1.dao.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
-
 import com.hrdb1.dao.IPTransDao;
-import com.hrdb1.entity.PCon;
 import com.hrdb1.entity.PTrans;
 import com.hrdb1.util.BaseDao;
 
@@ -35,7 +32,7 @@ private BaseDao baseDao;
 				Integer nextjob = rs.getInt("nextjob");
 				String predept = rs.getString("predept");
 				String nextdept = rs.getString("nextdept");
-				Date date = rs.getDate("date");
+				String date = rs.getString("date");
 				String pS = rs.getString("pS");
 				
 				PTrans emp = new PTrans(eid, prejob, nextjob, predept, nextdept, date, pS);
@@ -64,7 +61,7 @@ private BaseDao baseDao;
 				Integer nextJob  = rs.getInt("nextJob");
 				String preDept = rs.getString("preDept");
 				String nextDept = rs.getString("nextDept");
-				Date date = rs.getDate("date");
+				String date = rs.getString("date");
 				String PS  = rs.getString("PS");
 				
 				PTrans emp = new PTrans(eid, preJob, nextJob, preDept, nextDept, date, PS);
@@ -79,7 +76,7 @@ private BaseDao baseDao;
 
 
 	@Override
-	public int addPTrans(int eid, int prejob, int nextjob, String predept, String nextdept, Date date, String pS) {
+	public int addPTrans(int eid, int prejob, int nextjob, String predept, String nextdept, String date, String pS) {
 		// TODO Auto-generated method stub
         baseDao = new BaseDao();
 		
@@ -145,7 +142,7 @@ private BaseDao baseDao;
 	 * 更新操作
 	 */
 	@Override
-	public int updatePTrans(int eid, int prejob, int nextjob, String predept, String nextdept, Date date, String pS) {
+	public int updatePTrans(int eid, int prejob, int nextjob, String predept, String nextdept, String date, String pS) {
 		int result = 0;
 		//先删再插入
 		rmPTrans(eid);

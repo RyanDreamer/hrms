@@ -1,15 +1,11 @@
 package com.hrdb1.entity;
 
-import java.util.Date;
-
-
-
 public class Dimission {
 	int eid;
-	Date date;
+	String date;
 	int jid;
 	String reason;
-	public Dimission(int eid, Date date, int jid, String reason) {
+	public Dimission(int eid, String date, int jid, String reason) {
 		super();
 		this.eid = eid;
 		this.date = date;
@@ -22,10 +18,10 @@ public class Dimission {
 	public void setEid(int eid) {
 		this.eid = eid;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public int getJid() {

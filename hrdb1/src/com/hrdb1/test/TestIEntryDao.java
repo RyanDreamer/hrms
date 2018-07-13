@@ -1,25 +1,18 @@
 package com.hrdb1.test;
 
-import java.sql.Date;
 import java.util.List;
-
 import org.junit.Test;
-
-import com.hrdb1.dao.IEmployeeInfoDao;
 import com.hrdb1.dao.IEntryDao;
-import com.hrdb1.dao.impl.EmployeeInfoDaoImpl;
 import com.hrdb1.dao.impl.EntryDaoImpl;
-import com.hrdb1.entity.EmployeeInfo;
 import com.hrdb1.entity.Entry;
-
 
 public class TestIEntryDao {
 
 	@Test
 	public void testaddEntry() {
 		IEntryDao emp = new EntryDaoImpl();
-		emp.addEntry(1, Date.valueOf("2018-12-15"), 1, "入职部门");
-		emp.addEntry(2, Date.valueOf("2014-11-15"), 2, "入职部门");
+		emp.addEntry(1, "2018-12-15", 1, "入职部门");
+		emp.addEntry(2, "2014-11-15", 2, "入职部门");
 	}
 	
 	@Test
@@ -62,7 +55,7 @@ public class TestIEntryDao {
 	public void testupdateEntry() {
 		IEntryDao emp = new EntryDaoImpl();
 		int result = 0; //受影响的行数	
-		result = emp.updateEntry(2, Date.valueOf("2000-01-01"), 2, "入职部门");
+		result = emp.updateEntry(2,"2000-01-01", 2, "入职部门");
 		System.out.println("修改受影响行数:"+result);
 	}
 	

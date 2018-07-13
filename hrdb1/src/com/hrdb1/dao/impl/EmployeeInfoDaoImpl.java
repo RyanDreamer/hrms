@@ -1,13 +1,10 @@
 package com.hrdb1.dao.impl;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.hrdb1.dao.IEmployeeInfoDao;
-import com.hrdb1.entity.Dimission;
 import com.hrdb1.entity.EmployeeInfo;
 import com.hrdb1.util.BaseDao;
 
