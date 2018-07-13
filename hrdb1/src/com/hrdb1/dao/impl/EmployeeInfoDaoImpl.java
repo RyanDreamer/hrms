@@ -52,7 +52,7 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 	/* (non-Javadoc)
 	 * @see com.hrms.dao.IEmployeeInfoDao#addEmployee(java.util.List)
 	 */
-	
+	@Override
 	public List<EmployeeInfo> findEmployeeInfo(String col, Object param){
 		baseDao = new BaseDao();
 		List<EmployeeInfo> list = new ArrayList<EmployeeInfo>();

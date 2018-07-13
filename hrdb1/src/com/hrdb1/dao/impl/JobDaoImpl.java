@@ -129,7 +129,7 @@ private BaseDao baseDao;
 		
 		result = baseDao.executeUpdate(sql, params);
 		if (result != 0) {
-			System.out.println("成功删除"+name+"号部门的信息");
+			System.out.println("成功删除"+jid+"号岗位的信息");
 		}
 		else {
 			System.out.println("没能成功删除");
@@ -164,7 +164,7 @@ private BaseDao baseDao;
 		String sql = "update job set "+col+"=? where jid=?";
 		List<Object> params = new ArrayList<Object>();
 		params.add(value);
-		//确定要修改的部门名
+		//确定要修改的岗位
 		params.add(jid);
 		//执行
 		result = baseDao.executeUpdate(sql, params);

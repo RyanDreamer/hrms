@@ -10,7 +10,7 @@ public interface IDeptDao {
 	 */
 	public List<Dept> showDept();
 	
-	public List<Dept> findDept(String col, Object param);
+	public List<Dept> findDept(String col, String param);
 	
 	/**
 	 * 插入一条部门信息

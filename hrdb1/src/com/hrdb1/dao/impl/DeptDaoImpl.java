@@ -44,7 +44,7 @@ public class DeptDaoImpl implements IDeptDao {
 	 * 条件查询部门信息
 	 */
 	@Override
-	public List<Dept> findDept(String col, Object param){
+	public List<Dept> findDept(String col, String param){
 		baseDao = new BaseDao();
 		List<Dept> list = new ArrayList<Dept>();
 		String sql = "select * from dept where "+col+"=?";
