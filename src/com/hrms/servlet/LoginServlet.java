@@ -1,9 +1,11 @@
 package com.hrms.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,18 +37,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		//从前端的form表单获取用户名和密码
-		String eid = (String) request.getParameter("eid");
-		String password = (String) request.getParameter("password");
-		
-		//从数据库中匹配密码
-		//新建结果集
-		List<EmployeeInfo> list = new ArrayList<EmployeeInfo>();
-		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
-		list = emp.findEmployee("eid", eid);
-		if (password.equals(list.get(0).getPassword())) {
-			response.sendRedirect("/hrms/main.jsp");//匹配时跳转
-		}
+		doPost(request, response);
 	}
 
 	/**
@@ -54,7 +45,22 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//从前端的form表单获取用户名和密码
+		String eid = (String) request.getParameter("eid");
+		String password = (String) request.getParameter("password");
+		
+		
+		//从数据库中匹配密码
+		//新建结果集
+		List<EmployeeInfo> list = new ArrayList<EmployeeInfo>();
+		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
+		list = emp.findEmployee("eid", eid);
+		if (password.equals(list.get(0).getPassword())) {
+			response.sendRedirect("/hrms/login/main.jsp");//匹配时跳转
+		}
+		else {
+			response.sendRedirect("/hrms/login/index.jsp");
+		}
 	}
 
 }

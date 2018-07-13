@@ -40,7 +40,8 @@ public class IEmployeeInfoDaoTest {
 		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
 		int result = 0; //受影响的行数
 		
-		result = emp.addEmployee(5, "Mary", 18, "女", "NewYork", "UI", 3, "学士", "no", 1, "123456");
+		emp.addEmployee(1, "Ryan", 18, "男", "山东", "程序", 3, "硕士", "yes", 1, "123456");
+		result = emp.addEmployee(2, "Mary", 18, "女", "NewYork", "UI", 3, "学士", "no", 1, "123456");
 	}
 	
 	@Test
