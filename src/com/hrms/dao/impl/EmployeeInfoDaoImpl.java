@@ -37,8 +37,9 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 				String education = rs.getString("education");
 				String cet4 = rs.getString("cet4");
 				Integer family = rs.getInt("family");
+				String password = rs.getString("password");
 				
-				EmployeeInfo emp = new EmployeeInfo(eid, name, age, sex, hometown, oldJob, experience, education, cet4, family);
+				EmployeeInfo emp = new EmployeeInfo(eid, name, age, sex, hometown, oldJob, experience, education, cet4, family, password);
 				list.add(emp);
 			}
 		} catch (SQLException e) {
@@ -71,8 +72,9 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 				String education = rs.getString("education");
 				String cet4 = rs.getString("cet4");
 				Integer family = rs.getInt("family");
+				String password = rs.getString("password");
 				
-				EmployeeInfo emp = new EmployeeInfo(eid, name, age, sex, hometown, oldJob, experience, education, cet4, family);
+				EmployeeInfo emp = new EmployeeInfo(eid, name, age, sex, hometown, oldJob, experience, education, cet4, family, password);
 				list.add(emp);
 			}
 		} catch (SQLException e) {
@@ -87,13 +89,13 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 	 * @see com.hrms.dao.IEmployeeInfoDao#addEmployee(java.util.List)
 	 */
 	@Override
-	public int addEmployee(int eid, String name, int age, String sex, String hometown, String oldJob, int experience, String education, String cet4, int family ) {
+	public int addEmployee(int eid, String name, int age, String sex, String hometown, String oldJob, int experience, String education, String cet4, int family, String password ) {
 		// TODO Auto-generated method stub
 		baseDao = new BaseDao();
 		
 		//影响行数
 		int result = 0;
-		String sql = "insert into EmployeeInfo values(?,?,?,?,?,?,?,?,?,?)";	
+		String sql = "insert into EmployeeInfo values(?,?,?,?,?,?,?,?,?,?,?)";	
 		
 		//调用baseDao的函数执行插入操作
 		//用executeUpdate(sql, params),要先把传进的参数转成List
@@ -108,6 +110,7 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 		list.add(education);
 		list.add(cet4);
 		list.add(family);
+		list.add(password);
 		result = baseDao.executeUpdate(sql, list);
 		
 		//打印结果信息
@@ -158,12 +161,13 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 	@Override
 	public int updateEmployee(int eid, String name, int age
 			, String sex, String hometown, String oldJob
-			, int experience, String education, String cet4, int family) {
+			, int experience, String education, String cet4
+			, int family, String password) {
 		int result = 0;
 		//先删再插入
 		rmEmployee(eid);
 		result = addEmployee(eid, name, age, sex, hometown
-				, oldJob, experience, education, cet4, family);
+				, oldJob, experience, education, cet4, family, password);
 		
 		return result;
 		

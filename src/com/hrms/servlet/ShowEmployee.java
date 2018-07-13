@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.hrms.dao.IEmployeeInfoDao;
 import com.hrms.dao.impl.EmployeeInfoDaoImpl;
 import com.hrms.entity.EmployeeInfo;
@@ -60,6 +62,14 @@ public class ShowEmployee extends HttpServlet {
 			out.print(list.get(i).getFamily()+"\t");
 			out.println();
 		}
+		
+
+		JSONArray userListJson = JSONArray.parseArray(JSON.toJSONString(list));
+		
+		response.setContentType("application/json; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
+		out.println(userListJson);
 		
 	}
 

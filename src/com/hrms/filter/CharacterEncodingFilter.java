@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebFilter;
 
 /**
  * Servlet Filter implementation class CharacterEncodingFilter
+ * Œ¥ÃÌº”»Îweb.xml
  */
 //@WebFilter("/CharacterEncodingFilter")
 public class CharacterEncodingFilter implements Filter {

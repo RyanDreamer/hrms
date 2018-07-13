@@ -11,6 +11,7 @@ public class EmployeeInfo {
 	String education;
 	String cet4;
 	Integer family;
+	String password;
 	/**
 	 * @param name
 	 * @param age
@@ -21,9 +22,10 @@ public class EmployeeInfo {
 	 * @param education
 	 * @param cet4
 	 * @param family
+	 * @param password
 	 */
 	public EmployeeInfo(int eid, String name, int age, String sex, String hometown, String oldJob, int experience,
-			String education, String cet4, int family) {
+			String education, String cet4, int family, String password) {
 		super();
 		this.eid = eid;
 		this.name = name;
@@ -35,6 +37,7 @@ public class EmployeeInfo {
 		this.education = education;
 		this.cet4 = cet4;
 		this.family = family;
+		this.password = password;
 	}
 	/**
 	 * @return the eid
@@ -157,6 +160,12 @@ public class EmployeeInfo {
 		this.family = family;
 	}
 	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String pw) {
+		this.password = pw;
+	}
 	
 	/**
 	 * 输出一条信息
@@ -164,6 +173,6 @@ public class EmployeeInfo {
 	public void outPut() {
 		System.out.println(eid.intValue()+"\t"+ name+"\t"+age.intValue()+"\t"+
 						sex+"\t"+hometown+"\t"+oldJob+"\t"+experience.intValue()+"\t"+
-						education+"\t"+cet4+"\t"+family.intValue());
+						education+"\t"+cet4+"\t"+family.intValue()+"\t"+password);
 	}
 }
