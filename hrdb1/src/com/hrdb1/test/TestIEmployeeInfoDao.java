@@ -11,9 +11,9 @@ public class TestIEmployeeInfoDao {
 	@Test
 	public void testaddEmployeeInfo() {
 		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
-		emp.addEmployeeInfo(1,"高翔",11,"男","山西","程序员",11,"无","yes",3);
+		emp.addEmployeeInfo(1,"高翔",11,"男","山西","程序员",11,"无","yes",3,"");
 		
-		emp.addEmployeeInfo(2,"Hary",22,"男","陕西","序员",41,"无","yes",3);
+		emp.addEmployeeInfo(2,"Hary",22,"男","陕西","序员",41,"无","yes",3,"");
 	}
 	
 	@Test
@@ -30,7 +30,8 @@ public class TestIEmployeeInfoDao {
 			System.out.print(list.get(i).getExperience() + "	");
 			System.out.print(list.get(i).getEducation() + "	");
 			System.out.print(list.get(i).getCet4() + "	");
-			System.out.println(list.get(i).getFamily());
+			System.out.print(list.get(i).getFamily() + "	");
+			System.out.println(list.get(i).getPassword());
 			
 		}
 	}
@@ -53,7 +54,8 @@ public class TestIEmployeeInfoDao {
 			System.out.print(list.get(i).getExperience() + "	");
 			System.out.print(list.get(i).getEducation() + "		");
 			System.out.print(list.get(i).getCet4() + "		");
-			System.out.println(list.get(i).getFamily());
+			System.out.print(list.get(i).getFamily() + "	");
+			System.out.println(list.get(i).getPassword());
 		}
 	}
 	
@@ -69,7 +71,7 @@ public class TestIEmployeeInfoDao {
 	public void testupdateEmployeeInfo() {
 		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
 		int result = 0; //受影响的行数	
-		result = emp.updateEmployeeInfo(2, "高翔", 11, "男", "山西", "程序员", 11, "初中", "no", 5);
+		result = emp.updateEmployeeInfo(2, "高翔", 11, "男", "山西", "程序员", 11, "初中", "no", 5,"");
 		System.out.println("修改受影响行数:"+result);
 	}
 	

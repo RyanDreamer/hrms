@@ -35,8 +35,9 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 				String education = rs.getString("education");
 				String cet4 = rs.getString("cet4");
 				Integer family = rs.getInt("family");
+				String password = rs.getString("password");
 				
-				EmployeeInfo emp = new EmployeeInfo(eid, name, age, sex, hometown, oldJob, experience, education, cet4, family);
+				EmployeeInfo emp = new EmployeeInfo(eid, name, age, sex, hometown, oldJob, experience, education, cet4, family, password);
 				list.add(emp);
 			}
 		} catch (SQLException e) {
@@ -70,8 +71,9 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 				String education  = rs.getString("education");
 				String cet4   = rs.getString("cet4");
 				Integer family   = rs.getInt("family");
+				String password = rs.getString("password");
 				
-				EmployeeInfo emp = new EmployeeInfo(eid, name, age, sex, hometown, oldJob, experience, education, cet4, family);
+				EmployeeInfo emp = new EmployeeInfo(eid, name, age, sex, hometown, oldJob, experience, education, cet4, family, password);
 				list.add(emp);
 			}
 		} catch (SQLException e) {
@@ -83,7 +85,7 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 
 	
 	@Override
-	public int addEmployeeInfo(int eid, String name, int age, String sex, String hometown, String oldJob, int experience, String education, String cet4, int family ) {
+	public int addEmployeeInfo(int eid, String name, int age, String sex, String hometown, String oldJob, int experience, String education, String cet4, int family, String password ) {
 		// TODO Auto-generated method stub
 		baseDao = new BaseDao();
 		
@@ -104,6 +106,7 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 		list.add(education);
 		list.add(cet4);
 		list.add(family);
+		list.add(password);
 		result = baseDao.executeUpdate(sql, list);
 		
 		//打印结果信息
@@ -153,12 +156,12 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 	 */
 	@Override
 	public int updateEmployeeInfo(int eid, String name, int age, String sex, String hometowm, String oldjob, int experience,
-			String education, String cet4, int family) {
+			String education, String cet4, int family, String password) {
 		int result = 0;
 		//先删再插入
 		rmEmployeeInfo(eid);
 		result = addEmployeeInfo(eid, name, age, sex, hometowm, oldjob, experience,
-			 education, cet4, family);	
+			 education, cet4, family, password);	
 		return result;
 		
 	}

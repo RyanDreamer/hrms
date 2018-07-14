@@ -31,7 +31,7 @@ public interface IEmployeeInfoDao {
 	 */
 	
 	public int addEmployeeInfo(int eid, String name, int age, String sex, String hometowm, String oldjob, int experience,
-			String education, String cet4, int family );
+			String education, String cet4, int family, String password);
 	
 	/**
 	 * 根据员工号删除部门数据
@@ -45,7 +45,7 @@ public interface IEmployeeInfoDao {
 	 * @return 受影响的行数
 	 */
 	public int updateEmployeeInfo(int eid, String name, int age, String sex, String hometowm, String oldjob, int experience,
-			String education, String cet4, int family);
+			String education, String cet4, int family, String password);
 	
 	public int updateEmployeeInfo(int eid, String col, String value);
 }

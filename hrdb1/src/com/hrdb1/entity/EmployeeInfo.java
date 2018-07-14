@@ -11,8 +11,9 @@ public class EmployeeInfo {
 	String education;
 	String cet4;
 	int family;
+	String password;
 	public EmployeeInfo(int eid, String name, int age, String sex, String hometowm, String oldjob, int experience,
-			String education, String cet4, int family) {
+			String education, String cet4, int family,String password) {
 		super();
 		this.eid = eid;
 		this.name = name;
@@ -24,6 +25,7 @@ public class EmployeeInfo {
 		this.education = education;
 		this.cet4 = cet4;
 		this.family = family;
+		this.password = password;
 	}
 	public int getEid() {
 		return eid;
@@ -85,7 +87,12 @@ public class EmployeeInfo {
 	public void setFamily(int family) {
 		this.family = family;
 	}
-	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 
 }
