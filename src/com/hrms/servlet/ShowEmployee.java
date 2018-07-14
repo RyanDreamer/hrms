@@ -29,6 +29,7 @@ public class ShowEmployee extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public ShowEmployee() {
+    	
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,38 +40,8 @@ public class ShowEmployee extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		doPost(request, response);
 
-		
-		PrintWriter out = response.getWriter();
-		out.println("hello world");
-		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
-		List<EmployeeInfo> list = emp.showEmployee();
-		out.println("工号"+"\t"+ "姓名"+"\t"+"年龄"+"\t"+
-						"性别"+"\t"+"籍贯"+"\t"+"上个职业"+"\t"+"工作年数"+"\t"+
-						"学历"+"\t"+"英语四级"+"\t"+"家庭成员人数");
-		for (int i=0; i<list.size(); i++) {
-			out.print(list.get(i).getEid()+"\t");
-			out.print(list.get(i).getName()+"\t");
-			out.print(list.get(i).getAge()+"\t");
-			out.print(list.get(i).getSex()+"\t");
-			out.print(list.get(i).getHometown()+"\t");
-			out.print(list.get(i).getOldJob()+"\t");
-			out.print(list.get(i).getExperience()+"\t");
-			out.print(list.get(i).getEducation()+"\t");
-			out.print(list.get(i).getCet4()+"\t");
-			out.print(list.get(i).getFamily()+"\t");
-			out.println();
-		}
-		
-
-		JSONArray userListJson = JSONArray.parseArray(JSON.toJSONString(list));
-		
-		response.setContentType("application/json; charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		
-		out.println(userListJson);
-		
 	}
 
 	/**
@@ -78,7 +49,41 @@ public class ShowEmployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+
+		//获取输出流对象
+		PrintWriter out = response.getWriter();
+		out.println("hello world");
+		
+		//获取所有员工的信息
+		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
+		List<EmployeeInfo> list = emp.showEmployee();
+		
+		request.setAttribute("info", list);
+		
+
+		request.getRequestDispatcher("admin/employee.jsp").forward(request, response);
+		
 	}
+	
+	protected void getJson(HttpServletRequest request,HttpServletResponse response,Object object){
+        response.setContentType("text/html;charset=UTF-8");  
+        //禁用缓存，确保网页信息是最新数据  
+        response.setHeader("Pragma","No-cache");      
+        response.setHeader("Cache-Control","no-cache");      
+        response.setDateHeader("Expires", -10);  
+        PrintWriter out = null;
+        try {
+            out = response.getWriter();
+            String jsonStr=JSON.toJSONString(object);
+            out.print(jsonStr);  
+            out.flush();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            out.close();
+        }
+    }
 
 }

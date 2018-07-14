@@ -25,7 +25,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <li><a href="首页.html">首页</a></li>
       <li><a href="部门管理.html">部门管理</a></li>
       <li><a href="岗位管理.html">岗位管理</a></li>
-      <li><a href="员工信息管理.html">员工信息管理</a></li>
+      <li><form action="/hrms/ShowEmployee" method="post">
+      		<input type="submit" value="人员信息管理" name="empoyee" />
+      		</form>
+      </li>
        <li><a href="调动管理.html">调动管理</a></li>
         <li class="seleli"><a href="#">入职管理</a></li>
         <li><a href="离职管理.html">离职管理</a></li>
