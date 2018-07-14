@@ -1,22 +1,22 @@
 package com.hrms.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Entry {
 	Integer eid;
-	Date date;
+	String date;
 	Integer jid;
 	String dept;
 	/**
 	 * @param eid
-	 * @param date
+	 * @param date2
 	 * @param jid
 	 * @param dept
 	 */
-	public Entry(Integer eid, Date date, Integer jid, String dept) {
+	public Entry(Integer eid, String date2, Integer jid, String dept) {
 		super();
 		this.eid = eid;
-		this.date = date;
+		this.date = date2;
 		this.jid = jid;
 		this.dept = dept;
 	}
@@ -35,13 +35,13 @@ public class Entry {
 	/**
 	 * @return the date
 	 */
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 	/**
 	 * @param date the date to set
 	 */
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	/**

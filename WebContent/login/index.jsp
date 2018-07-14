@@ -95,7 +95,8 @@ background-origin:content-box;
         </div>
     </div>
     <div class="lg_foot">
-    <input type="submit" value="登录" class="bn" /></div>
+    <input type="submit" value="登录" class="bn" />
+    </div>
 </form>
 </div>
 </body>

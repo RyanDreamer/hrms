@@ -12,6 +12,10 @@ public class EmployeeInfo {
 	String cet4;
 	Integer family;
 	String password;
+	
+	public EmployeeInfo() {
+		
+	}
 	/**
 	 * @param name
 	 * @param age
