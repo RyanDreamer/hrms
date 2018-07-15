@@ -11,16 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hrdb1.dao.IDeptDao;
+import com.hrdb1.dao.IDimissionDao;
 import com.hrdb1.dao.IEmployeeInfoDao;
 import com.hrdb1.dao.impl.DeptDaoImpl;
+import com.hrdb1.dao.impl.DimissionDaoImpl;
 import com.hrdb1.dao.impl.EmployeeInfoDaoImpl;
 import com.hrdb1.entity.Dept;
+import com.hrdb1.entity.Dimission;
 import com.hrdb1.entity.EmployeeInfo;
 
 /**
  * Servlet implementation class ShowDeptServlet
  */
-@WebServlet("/ShowDeptServlet")
+//@WebServlet("/ShowDeptServlet")
 public class ShowDeptServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,18 +48,13 @@ public class ShowDeptServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//获取输出流对象
-				PrintWriter out = response.getWriter();
-				out.println("hello world");
-				
-				//获取所有部门的信息
-				IDeptDao emp = new DeptDaoImpl();
-				List<Dept> list = emp.showDept();
-				
-				request.setAttribute("info", list);
-				
-
-				request.getRequestDispatcher("admin/dept.jsp").forward(request, response);
+		int result=0;
+		//获取所有信息，传入前端
+		IDeptDao emp = new DeptDaoImpl();
+		List<Dept> list = emp.showDept();
+		request.setAttribute("info", list);
+		
+		request.getRequestDispatcher("admin/dept.jsp").forward(request, response);
 	}
 
 }
