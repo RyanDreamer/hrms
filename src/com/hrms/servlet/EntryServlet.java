@@ -37,18 +37,21 @@ public class EntryServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		IEntryDao entry = new EntryDaoImpl();
 		int result = 0;
+		IJobDao job = new JobDaoImpl();
 		
 		int eid = Integer.parseInt(request.getParameter("eid"));
-		String dept = request.getParameter("dept");
+		String dept = null;
 		int jid = Integer.parseInt(request.getParameter("jid"));
 		String date = request.getParameter("date");
+		
+		dept = job.findJob("jid", jid).get(0).getDept();
 		
 		result = entry.addEntry(eid, date, jid, dept);
 		
 		//如果添加成功，则返回成功提示
 		if (result != 0) {
 			//影响岗位表的实际人数
-			IJobDao job = new JobDaoImpl();
+			
 			job.updateJob(jid, "countReal", Integer.toString(job.findJob("jid", jid).get(0).getCountReal()+1));
 			request.setAttribute("successA", "1");
 		}
