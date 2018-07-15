@@ -13,7 +13,7 @@ public interface IEmployeeInfoDao {
 	 */
 	public List<EmployeeInfo> showEmployeeInfo();
 	
-	public List<EmployeeInfo> findEmployeeInfo(String col, Object param);
+	public List<EmployeeInfo> findEmployeeInfo(String col, String param);
 	
 	/**
 	 * 插入一条员工信息

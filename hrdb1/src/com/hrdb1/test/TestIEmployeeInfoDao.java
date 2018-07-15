@@ -11,9 +11,9 @@ public class TestIEmployeeInfoDao {
 	@Test
 	public void testaddEmployeeInfo() {
 		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
-		emp.addEmployeeInfo(1,"高翔",11,"男","山西","程序员",11,"无","yes",3,"");
+		emp.addEmployeeInfo(1,"高翔2",11,"男","山西","程序员",11,"无","yes",3,"1111");
 		
-		emp.addEmployeeInfo(2,"Hary",22,"男","陕西","序员",41,"无","yes",3,"");
+		emp.addEmployeeInfo(2,"Hary2",22,"男","陕西","序员",41,"无","yes",3,"2222");
 	}
 	
 	@Test

@@ -51,7 +51,7 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 	 * @see com.hrms.dao.IEmployeeInfoDao#addEmployee(java.util.List)
 	 */
 	@Override
-	public List<EmployeeInfo> findEmployeeInfo(String col, Object param){
+	public List<EmployeeInfo> findEmployeeInfo(String col, String param){
 		baseDao = new BaseDao();
 		List<EmployeeInfo> list = new ArrayList<EmployeeInfo>();
 		String sql = "select * from employeeInfo where "+col+"=?";
@@ -91,7 +91,7 @@ public class EmployeeInfoDaoImpl implements IEmployeeInfoDao {
 		
 		//影响行数
 		int result = 0;
-		String sql = "insert into employeeInfo values(?,?,?,?,?,?,?,?,?,?)";	
+		String sql = "insert into employeeInfo values(?,?,?,?,?,?,?,?,?,?,?)";	
 		
 		//调用baseDao的函数执行插入操作
 		//用executeUpdate(sql, params),要先把传进的参数转成List

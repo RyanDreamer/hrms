@@ -10,20 +10,20 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
-    <servlet-name>Login</servlet-name>
-    <servlet-class>com.hrdb1.servlet.LoginServlet</servlet-class>
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>com.hrdb1.filter.CharacterEncodingFilter</filter-class>
     <init-param>
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
     </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Login</servlet-name>
-    <url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   
-   <servlet>
+  <servlet>
     <servlet-name>ShowEmployee</servlet-name>
     <servlet-class>com.hrdb1.servlet.ShowEmployee</servlet-class>
     <init-param>
@@ -37,7 +37,7 @@
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>userlist</servlet-name>
+    <servlet-name>UserList</servlet-name>
     <servlet-class>com.hrdb1.servlet.UserList</servlet-class>
     <init-param>
       <param-name>encoding</param-name>
@@ -45,8 +45,59 @@
     </init-param>
   </servlet>
   <servlet-mapping>
-    <servlet-name>userlist</servlet-name>
-    <url-pattern>/userlist</url-pattern>
+    <servlet-name>UserList</servlet-name>
+    <url-pattern>/UserList</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.hrdb1.servlet.LoginServlet</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>EntryServlet</servlet-name>
+    <servlet-class>com.hrdb1.servlet.EntryServlet</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EntryServlet</servlet-name>
+    <url-pattern>/EntryServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DimissionServlet</servlet-name>
+    <servlet-class>com.hrdb1.servlet.DimissionServlet</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DimissionServlet</servlet-name>
+    <url-pattern>/DimissionServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DeptServlet</servlet-name>
+    <servlet-class>com.hrdb1.servlet.DeptServlet</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeptServlet</servlet-name>
+    <url-pattern>/DeptServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
