@@ -8,7 +8,7 @@ public class PTrans {
 	Integer nextJob;
 	String preDept;
 	String nextDept;
-	Date date;
+	String date;
 	String PS;
 	/**
 	 * @param eid
@@ -16,17 +16,17 @@ public class PTrans {
 	 * @param nextJob
 	 * @param preDept
 	 * @param nextDept
-	 * @param date
+	 * @param date2
 	 * @param pS
 	 */
-	public PTrans(Integer eid, Integer preJob, Integer nextJob, String preDept, String nextDept, Date date, String pS) {
+	public PTrans(Integer eid, Integer preJob, Integer nextJob, String preDept, String nextDept, String date2, String pS) {
 		super();
 		this.eid = eid;
 		this.preJob = preJob;
 		this.nextJob = nextJob;
 		this.preDept = preDept;
 		this.nextDept = nextDept;
-		this.date = date;
+		this.date = date2;
 		PS = pS;
 	}
 	/**
@@ -92,13 +92,13 @@ public class PTrans {
 	/**
 	 * @return the date
 	 */
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 	/**
 	 * @param date the date to set
 	 */
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	/**

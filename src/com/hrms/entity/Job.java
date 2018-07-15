@@ -8,14 +8,16 @@ public class Job {
 	Integer countReal;
 	Integer salary;
 	/**
+	 * @param jid2 
 	 * @param title
 	 * @param dept
 	 * @param countDemand
 	 * @param countReal
 	 * @param salary
 	 */
-	public Job(String title, String dept, Integer countDemand, Integer countReal, Integer salary) {
+	public Job(Integer jid2, String title, String dept, Integer countDemand, Integer countReal, Integer salary) {
 		super();
+		this.jid = jid2;
 		this.title = title;
 		this.dept = dept;
 		this.countDemand = countDemand;

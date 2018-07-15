@@ -4,19 +4,19 @@ import java.util.Date;
 
 public class Dimission {
 	Integer eid;
-	Date date;
+	String date;
 	Integer jid;
 	String reason;
 	/**
 	 * @param eid
-	 * @param date
+	 * @param date2
 	 * @param jid
 	 * @param reason
 	 */
-	public Dimission(Integer eid, Date date, Integer jid, String reason) {
+	public Dimission(Integer eid, String date2, Integer jid, String reason) {
 		super();
 		this.eid = eid;
-		this.date = date;
+		this.date = date2;
 		this.jid = jid;
 		this.reason = reason;
 	}
@@ -35,13 +35,13 @@ public class Dimission {
 	/**
 	 * @return the date
 	 */
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 	/**
 	 * @param date the date to set
 	 */
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	/**

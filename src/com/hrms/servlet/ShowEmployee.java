@@ -49,12 +49,6 @@ public class ShowEmployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-
-		//获取输出流对象
-		PrintWriter out = response.getWriter();
-		out.println("hello world");
-		
 		//获取所有员工的信息
 		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
 		List<EmployeeInfo> list = emp.showEmployee();
@@ -66,24 +60,4 @@ public class ShowEmployee extends HttpServlet {
 		
 	}
 	
-	protected void getJson(HttpServletRequest request,HttpServletResponse response,Object object){
-        response.setContentType("text/html;charset=UTF-8");  
-        //禁用缓存，确保网页信息是最新数据  
-        response.setHeader("Pragma","No-cache");      
-        response.setHeader("Cache-Control","no-cache");      
-        response.setDateHeader("Expires", -10);  
-        PrintWriter out = null;
-        try {
-            out = response.getWriter();
-            String jsonStr=JSON.toJSONString(object);
-            out.print(jsonStr);  
-            out.flush();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }finally{
-            out.close();
-        }
-    }
-
 }

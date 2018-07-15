@@ -5,19 +5,21 @@ import java.util.Date;
 public class PCon {
 	Integer id;
 	Integer salary;
-	Date startDate;
-	Date deadline;
+	String startDate;
+	String deadline;
 	Integer eid;
 	Integer jid;
 	/**
 	 * @param salary
+	 * @param salary2 
 	 * @param startDate
 	 * @param deadline
 	 * @param eid
 	 * @param jid
 	 */
-	public PCon(Integer salary, Date startDate, Date deadline, Integer eid, Integer jid) {
+	public PCon(Integer id, Integer salary, String startDate, String deadline, Integer eid, Integer jid) {
 		super();
+		this.id = id;
 		this.salary = salary;
 		this.startDate = startDate;
 		this.deadline = deadline;
@@ -51,25 +53,25 @@ public class PCon {
 	/**
 	 * @return the startDate
 	 */
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 	/**
 	 * @param startDate the startDate to set
 	 */
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 	/**
 	 * @return the deadline
 	 */
-	public Date getDeadline() {
+	public String getDeadline() {
 		return deadline;
 	}
 	/**
 	 * @param deadline the deadline to set
 	 */
-	public void setDeadline(Date deadline) {
+	public void setDeadline(String deadline) {
 		this.deadline = deadline;
 	}
 	/**

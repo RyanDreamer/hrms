@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="utf8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
@@ -7,19 +7,18 @@
 			+ path + "/";
 %>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="人力资源管理平台" />
-<title>员工信息管理</title>
+<title>岗位管理</title>
 <link type="text/css" rel="stylesheet" href="/hrms/admin/css/css.css" />
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-	<script type="text/javascript"
-		src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
-
+<style>
+.adtip {
+	height: 57px;
+}
+</style>
 </head>
 <body>
 
@@ -31,8 +30,8 @@
 				<ul class="nav">
 					<li><a href="/hrms/admin/main.jsp">首页</a></li>
 					<li><a href="/hrms/admin/dept.jsp">部门管理</a></li>
-					<li><a href="/hrms/admin/job.jsp">岗位管理</a></li>
-					<li class="seleli"><a href="#">员工信息管理</a></li>
+					<li class="seleli"><a href="#">岗位管理</a></li>
+					<li><a href="/hrms/admin/employee.jsp">员工信息管理</a></li>
 					<li><a href="/hrms/admin/ptrans.jsp">调动管理</a></li>
 					<li><a href="/hrms/admin/entry.jsp">入职管理</a></li>
 					<li><a href="/hrms/admin/dimission.jsp">离职管理</a></li>
@@ -79,13 +78,21 @@
 
 			</div>
 
+
+
 			<div class="mainbody">
 
-				<div class="adtip">
+
+				<div class="adtip"width:"1000px" height:"2000px">
 					<div class="tip">
-						<p class="goom">早上好，周云瑞！</p>
+						<p class="goom">你好，周云瑞！</p>
 					</div>
+
 				</div>
+
+
+
+
 				<div class="rig_lm03">
 					<div class="title">
 						<img src="/hrms/admin/images/listicon.jpg" class="icon"
@@ -98,94 +105,92 @@
 					<div class="title">
 						<img src="/hrms/admin/images/listicon.jpg" class="icon"
 							style="padding-top: 13px;">
-						<h2>员工主要资料</h2>
+						<h2>部门主要资料</h2>
 					</div>
 					<div class="detail">
 						<div class="inner03">
 							<div id="tabCot_product" class="zhutitab">
 								<div class="tabContainer">
-									<ul class="tabHead" id="tabCot_product-li-currentBtn-">
-										<li class="currentBtn"><a href="javascript:void(0)"
-											title="绩效考核" rel="1">绩效考核</a><span class="grey_numb">12</span></li>
-										<li><a href="javascript:void(0)" title="人事考核" rel="2">人事考核</a><span
-											class="red_numb">2</span></li>
-										<li><a href="javascript:void(0)" title="TAB名称" rel="3">TAB名称</a><span
-											class="red_numb">5</span></li>
-									</ul>
+
 									<p class="shent">
 										<span>Show entries: </span> <input style="width: 30px;"
-											type="text" value="10"> <img src="/hrms/admin/images/sz.jpg"
-											class="icon" style="">
+											type="text" value="10"> <img
+											src="/hrms/admin/images/sz.jpg" class="icon" style="">
 									</p>
 									<div class="clear"></div>
 								</div>
-
 								<div id="tabCot_product_1" class="tabCot">
+									<form action="/hrms/JobServlet" method="post">
+										<input type="submit" value="显示所有岗位的信息" align="left" />
+										<table class="tabindex" width="100%" border="0"
+											cellpadding="0" cellspacing="0">
+											<thead>
+												<tr>
+													<th width="22%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">岗位代号</span><span class="xila">&or;</span></th>
+													<th width="21%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">岗位名称</span><span class="xila">&or;</span></th>
+													<th width="22%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">所属部门</span><span class="xila">&or;</span></th>
+													<th width="21%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">岗位所需人数</span><span class="xila">&or;</span></th>
+													<th width="7%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">岗位实际人数</span><span class="xila">&or;</span></th>
+													<th width="19%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">薪酬</span><span class="xila">&or;</span></th>
+												</tr>
+											</thead>
+											<tbody>
 
+												<c:choose>
+													<c:when test="${not empty requestScope.info}">
+														<c:forEach var="staff" items="${requestScope.info}">
+															<tr>
 
-									<table class="tabindex" width="100%" border="0" cellpadding="0"
-										cellspacing="0" id="myTable">
-										<form action="/hrms/ShowEmployee" method="post">
-											<input type="submit" value="显示所有员工的信息" align="top"/>
-										</form>
-										<thead>
-											<tr>
-												<th width="5%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">员工号</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">姓名</span><span class="xila">&or;</span></th>
-												<th width="5%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">年龄</span><span class="xila">&or;</span></th>
-												<th width="5%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">性别</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">籍贯</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">原职业</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">职业从事时间</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">学历</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">是否通过英语四级</span><span class="xila">&or;</span></th>
-												<th width="5%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">家庭成员人数</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">密码</span><span class="xila">&or;</span></th>
-											</tr>
-										</thead>
-										<tbody>
-											<c:choose>
-												<c:when test="${not empty requestScope.info}">
-													<c:forEach var="staff" items="${requestScope.info}">
+																<td>${staff.jid }</td>
+																<td>${staff.title }</td>
+																<td>${staff.dept}</td>
+																<td>${staff.countDemand}</td>
+																<td>${staff.countReal}</td>
+																<td>${staff.salary}</td>
+
+															</tr>
+														</c:forEach>
+													</c:when>
+													<c:otherwise>
 														<tr>
-
-															<td>${staff.eid }</td>
-															<td>${staff.name }</td>
-															<td>${staff.age}</td>
-															<td>${staff.sex}</td>
-															<td>${staff.hometown}</td>
-															<td>${staff.oldJob}</td>
-															<td>${staff.experience}</td>
-															<td>${staff.education}</td>
-															<td>${staff.cet4}</td>
-															<td>${staff.family}</td>
-															<td>${staff.password}</td>
-
+															<td colspan="3"></td>
 														</tr>
-													</c:forEach>
-												</c:when>
-												<c:otherwise>
-													<tr>
-														<td colspan="3"></td>
-														
-														
-													</tr>
-												</c:otherwise>
-											</c:choose>
-										</tbody>
-									</table>
-
+													</c:otherwise>
+												</c:choose>
+											</tbody>
+										</table>
+									</form>
+									<form action="/hrms/AddJobServlet" method="post">
+										 添加岗位：   <input type="text" placeholder="岗位号" name="jid" />
+												 <input type="text" placeholder="岗位名称" name="title" />
+												 <input type="text" placeholder="所属部门" name="dept" /> 
+												 <input type="text" placeholder="所需人数" name="countDemand" /> 
+												 <input type="text" placeholder="实际人数" name="countReal" /> 
+												 <input type="text" placeholder="薪酬" name="salary" /> 
+												 <input type="submit" value="提交" />
+												 <c:choose>
+												 	<c:when test="${not empty success }">
+												 		<c:out value="提交成功！点击“显示所有岗位的信息”可查看"/>
+												 	</c:when>
+												 	<c:otherwise></c:otherwise>
+												 </c:choose>
+									</form>
+									<form action="/hrms/RmJobServlet" method="post">
+										 删除岗位：   <input type="text" placeholder="岗位号" name="jid" />
+												 <input type="submit" value="提交" />
+												 <c:choose>
+												 	<c:when test="${not empty success }">
+												 		<c:out value="提交成功！点击“显示所有岗位的信息”可查看"/>
+												 	</c:when>
+												 	<c:otherwise></c:otherwise>
+												 </c:choose>
+									</form>
 									<div class="fanye">
 										<p class="fytip">Showing 1 to 10 of 12 entries</p>
 										<div class="yem">

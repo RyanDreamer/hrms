@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="utf8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
@@ -7,19 +7,13 @@
 			+ path + "/";
 %>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="人力资源管理平台" />
-<title>员工信息管理</title>
+<title>调动管理</title>
 <link type="text/css" rel="stylesheet" href="/hrms/admin/css/css.css" />
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-	<script type="text/javascript"
-		src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
-
 </head>
 <body>
 
@@ -32,8 +26,8 @@
 					<li><a href="/hrms/admin/main.jsp">首页</a></li>
 					<li><a href="/hrms/admin/dept.jsp">部门管理</a></li>
 					<li><a href="/hrms/admin/job.jsp">岗位管理</a></li>
-					<li class="seleli"><a href="#">员工信息管理</a></li>
-					<li><a href="/hrms/admin/ptrans.jsp">调动管理</a></li>
+					<li><a href="/hrms/admin/employee.jsp">员工信息管理</a></li>
+					<li class="seleli"><a href="#">调动管理</a></li>
 					<li><a href="/hrms/admin/entry.jsp">入职管理</a></li>
 					<li><a href="/hrms/admin/dimission.jsp">离职管理</a></li>
 				</ul>
@@ -49,7 +43,7 @@
 			<div class="leftbar">
 
 				<div class="lm01">
-					<img class="peptx" src="/hrms/admin/images/b.jpg" />
+					<img class="peptx" src="images/b.jpg" />
 					<div class="pepdet">
 						<p class="pepname">周云瑞</p>
 						<p>周云瑞</p>
@@ -79,12 +73,18 @@
 
 			</div>
 
+
+
 			<div class="mainbody">
+
+
+
 
 				<div class="adtip">
 					<div class="tip">
 						<p class="goom">早上好，周云瑞！</p>
 					</div>
+
 				</div>
 				<div class="rig_lm03">
 					<div class="title">
@@ -119,73 +119,57 @@
 									</p>
 									<div class="clear"></div>
 								</div>
-
 								<div id="tabCot_product_1" class="tabCot">
-
-
 									<table class="tabindex" width="100%" border="0" cellpadding="0"
-										cellspacing="0" id="myTable">
-										<form action="/hrms/ShowEmployee" method="post">
-											<input type="submit" value="显示所有员工的信息" align="top"/>
-										</form>
-										<thead>
-											<tr>
-												<th width="5%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">员工号</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">姓名</span><span class="xila">&or;</span></th>
-												<th width="5%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">年龄</span><span class="xila">&or;</span></th>
-												<th width="5%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">性别</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">籍贯</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">原职业</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">职业从事时间</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">学历</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">是否通过英语四级</span><span class="xila">&or;</span></th>
-												<th width="5%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">家庭成员人数</span><span class="xila">&or;</span></th>
-												<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">密码</span><span class="xila">&or;</span></th>
-											</tr>
-										</thead>
-										<tbody>
-											<c:choose>
-												<c:when test="${not empty requestScope.info}">
-													<c:forEach var="staff" items="${requestScope.info}">
-														<tr>
+										cellspacing="0">
+										<tr>
+											<th width="15%" bgcolor="#f8f8f8" scope="col"><span
+												class="titlab">员工号</span><span class="xila">&or;</span></th>
+											<th width="15%" bgcolor="#f8f8f8" scope="col"><span
+												class="titlab">姓名</span><span class="xila">&or;</span></th>
+											<th width="15%" bgcolor="#f8f8f8" scope="col"><span
+												class="titlab">调动前岗位</span><span class="xila">&or;</span></th>
+											<th width="10%" bgcolor="#f8f8f8" scope="col"><span
+												class="titlab">调动后岗位</span><span class="xila">&or;</span></th>
+											<th width="10%" bgcolor="#f8f8f8" scope="col"><span
+												class="titlab">调动前部门</span><span class="xila">&or;</span></th>
+											<th width="10%" bgcolor="#f8f8f8" scope="col"><span
+												class="titlab">调动后部门</span><span class="xila">&or;</span></th>
+											<th width="10%" bgcolor="#f8f8f8" scope="col"><span
+												class="titlab">调动日期</span><span class="xila">&or;</span></th>
+											<th width="15%" bgcolor="#f8f8f8" scope="col"><span
+												class="titlab">备注</span><span class="xila">&or;</span></th>
 
-															<td>${staff.eid }</td>
-															<td>${staff.name }</td>
-															<td>${staff.age}</td>
-															<td>${staff.sex}</td>
-															<td>${staff.hometown}</td>
-															<td>${staff.oldJob}</td>
-															<td>${staff.experience}</td>
-															<td>${staff.education}</td>
-															<td>${staff.cet4}</td>
-															<td>${staff.family}</td>
-															<td>${staff.password}</td>
+										</tr>
+										<tr>
+											<td bgcolor="#FFFFFF">小明</td>
+											<td class="datacol" bgcolor="#FFFFFF">研发部</td>
+											<td bgcolor="#FFFFFF">部门经理</td>
+											<td bgcolor="#FFFFFF">2018-07-05</td>
+											<td class="yccol" bgcolor="#FFFFFF">100</td>
+											<td class="czcol" bgcolor="#FFFFFF"><a href="#">修改信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+												href="#">查看</a></td>
+										</tr>
+										<tr>
+											<td bgcolor="#FFFFFF">小红</td>
+											<td class="datacol" bgcolor="#FFFFFF">质检部</td>
+											<td bgcolor="#FFFFFF">部门经理</td>
+											<td bgcolor="#FFFFFF">2018-07-05</td>
+											<td class="yccol" bgcolor="#FFFFFF">100</td>
+											<td class="czcol" bgcolor="#FFFFFF"><a href="#">修改信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+												href="#">查看</a></td>
+										</tr>
+										<tr>
+											<td bgcolor="#FFFFFF">小蓝</td>
+											<td class="datacol" bgcolor="#FFFFFF">销售部</td>
+											<td bgcolor="#FFFFFF">部门经理</td>
+											<td bgcolor="#FFFFFF">2018-07-05</td>
+											<td class="yccol" bgcolor="#FFFFFF">100</td>
+											<td class="czcol" bgcolor="#FFFFFF"><a href="#">修改信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+												href="#">查看</a></td>
+										</tr>
 
-														</tr>
-													</c:forEach>
-												</c:when>
-												<c:otherwise>
-													<tr>
-														<td colspan="3"></td>
-														
-														
-													</tr>
-												</c:otherwise>
-											</c:choose>
-										</tbody>
 									</table>
-
 									<div class="fanye">
 										<p class="fytip">Showing 1 to 10 of 12 entries</p>
 										<div class="yem">

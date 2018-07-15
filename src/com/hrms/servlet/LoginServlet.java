@@ -56,11 +56,12 @@ public class LoginServlet extends HttpServlet {
 		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
 		list = emp.findEmployee("eid", eid);
 		if (password.equals(list.get(0).getPassword())) {
-			response.sendRedirect("/hrms/login/main.jsp");//匹配时跳转
+			request.setAttribute("success", null);
+			response.sendRedirect("/hrms/admin/main.jsp");//匹配时跳转
 		}
 		else {
-			
-			response.sendRedirect("/hrms/login/index.jsp");
+			request.setAttribute("success", "0");
+			request.getRequestDispatcher("/login/index.jsp").forward(request,response);
 		}
 	}
 
