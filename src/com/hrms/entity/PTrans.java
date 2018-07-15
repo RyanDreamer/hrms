@@ -19,15 +19,15 @@ public class PTrans {
 	 * @param date2
 	 * @param pS
 	 */
-	public PTrans(Integer eid, Integer preJob, Integer nextJob, String preDept, String nextDept, String date2, String pS) {
+	public PTrans(Integer eid, Integer preJob, Integer nextJob, String preDept, String nextDept, String date, String PS) {
 		super();
 		this.eid = eid;
 		this.preJob = preJob;
 		this.nextJob = nextJob;
 		this.preDept = preDept;
 		this.nextDept = nextDept;
-		this.date = date2;
-		PS = pS;
+		this.date = date;
+		this.PS = PS;
 	}
 	/**
 	 * @return the eid
@@ -110,8 +110,8 @@ public class PTrans {
 	/**
 	 * @param pS the pS to set
 	 */
-	public void setPS(String pS) {
-		PS = pS;
+	public void setPS(String PS) {
+		this.PS = PS;
 	}
 	
 	

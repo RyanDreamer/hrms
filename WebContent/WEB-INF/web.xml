@@ -57,8 +57,6 @@
     <servlet-name>EntryServlet</servlet-name>
     <url-pattern>/EntryServlet</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <servlet-name>ShowEntry</servlet-name>
     <servlet-class>com.hrms.servlet.ShowEntry</servlet-class>
@@ -71,8 +69,6 @@
     <servlet-name>ShowEntry</servlet-name>
     <url-pattern>/ShowEntry</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <servlet-name>JobServlet</servlet-name>
     <servlet-class>com.hrms.servlet.JobServlet</servlet-class>
@@ -156,5 +152,31 @@
   <servlet-mapping>
     <servlet-name>RmEmployee</servlet-name>
     <url-pattern>/RmEmployee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowPtrans</servlet-name>
+    <servlet-class>com.hrms.servlet.ShowPtrans</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowPtrans</servlet-name>
+    <url-pattern>/ShowPtrans</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <servlet-name>AddPtrans</servlet-name>
+    <servlet-class>com.hrms.servlet.AddPtrans</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddPtrans</servlet-name>
+    <url-pattern>/AddPtrans</url-pattern>
   </servlet-mapping>
 </web-app>

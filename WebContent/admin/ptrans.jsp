@@ -43,7 +43,7 @@
 			<div class="leftbar">
 
 				<div class="lm01">
-					<img class="peptx" src="images/b.jpg" />
+					<img class="peptx" src="/hrms/admin/images/b.jpg" />
 					<div class="pepdet">
 						<p class="pepname">周云瑞</p>
 						<p>周云瑞</p>
@@ -114,63 +114,93 @@
 									</ul>
 									<p class="shent">
 										<span>Show entries: </span> <input style="width: 30px;"
-											type="text" value="10"> <img src="/hrms/admin/images/sz.jpg"
-											class="icon" style="">
+											type="text" value="10"> <img
+											src="/hrms/admin/images/sz.jpg" class="icon" style="">
 									</p>
 									<div class="clear"></div>
 								</div>
 								<div id="tabCot_product_1" class="tabCot">
-									<form action="/ShowPtrans" method="post">
-									<table class="tabindex" width="100%" border="0" cellpadding="0"
-										cellspacing="0">
-										<tr>
-											<th width="15%" bgcolor="#f8f8f8" scope="col"><span
-												class="titlab">员工号</span><span class="xila">&or;</span></th>
-											<th width="15%" bgcolor="#f8f8f8" scope="col"><span
-												class="titlab">姓名</span><span class="xila">&or;</span></th>
-											<th width="15%" bgcolor="#f8f8f8" scope="col"><span
-												class="titlab">调动前岗位</span><span class="xila">&or;</span></th>
-											<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-												class="titlab">调动后岗位</span><span class="xila">&or;</span></th>
-											<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-												class="titlab">调动前部门</span><span class="xila">&or;</span></th>
-											<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-												class="titlab">调动后部门</span><span class="xila">&or;</span></th>
-											<th width="10%" bgcolor="#f8f8f8" scope="col"><span
-												class="titlab">调动日期</span><span class="xila">&or;</span></th>
-											<th width="15%" bgcolor="#f8f8f8" scope="col"><span
-												class="titlab">备注</span><span class="xila">&or;</span></th>
+									<form action="/hrms/ShowPtrans" method="post">
+										<table class="tabindex" width="100%" border="0"
+											cellpadding="0" cellspacing="0">
+											<thead>
+												<tr>
+													<th width="15%" bgcolor="#f8f8f8" scope="col">
+														<span class="titlab">员工号</span>
+														<span class="xila">&or;</span>
+													</th>
+													<th width="15%" bgcolor="#f8f8f8" scope="col">
+														<span class="titlab">调动前岗位</span>
+														<span class="xila">&or;</span>
+													</th>
+													
+													<th width="15%" bgcolor="#f8f8f8" scope="col">
+														<span class="titlab">调动前部门</span>
+														<span class="xila">&or;</span>
+													</th>
+													<th width="15%" bgcolor="#f8f8f8" scope="col">
+														<span class="titlab">调动后岗位</span>
+														<span class="xila">&or;</span>
+													</th>
+													<th width="10%" bgcolor="#f8f8f8" scope="col">
+														<span class="titlab">调动后部门</span>
+														<span class="xila">&or;</span>
+													</th>
+													<th width="10%" bgcolor="#f8f8f8" scope="col">
+														<span class="titlab">调动日期</span>
+														<span class="xila">&or;</span>
+													</th>
+													<th width="20%" bgcolor="#f8f8f8" scope="col">
+														<span class="titlab">备注</span>
+														<span class="xila">&or;</span>
+													</th>
 
-										</tr>
-										<tr>
-											<td bgcolor="#FFFFFF">小明</td>
-											<td class="datacol" bgcolor="#FFFFFF">研发部</td>
-											<td bgcolor="#FFFFFF">部门经理</td>
-											<td bgcolor="#FFFFFF">2018-07-05</td>
-											<td class="yccol" bgcolor="#FFFFFF">100</td>
-											<td class="czcol" bgcolor="#FFFFFF"><a href="#">修改信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-												href="#">查看</a></td>
-										</tr>
-										<tr>
-											<td bgcolor="#FFFFFF">小红</td>
-											<td class="datacol" bgcolor="#FFFFFF">质检部</td>
-											<td bgcolor="#FFFFFF">部门经理</td>
-											<td bgcolor="#FFFFFF">2018-07-05</td>
-											<td class="yccol" bgcolor="#FFFFFF">100</td>
-											<td class="czcol" bgcolor="#FFFFFF"><a href="#">修改信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-												href="#">查看</a></td>
-										</tr>
-										<tr>
-											<td bgcolor="#FFFFFF">小蓝</td>
-											<td class="datacol" bgcolor="#FFFFFF">销售部</td>
-											<td bgcolor="#FFFFFF">部门经理</td>
-											<td bgcolor="#FFFFFF">2018-07-05</td>
-											<td class="yccol" bgcolor="#FFFFFF">100</td>
-											<td class="czcol" bgcolor="#FFFFFF"><a href="#">修改信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-												href="#">查看</a></td>
-										</tr>
-0
-									</table>
+												</tr>
+											</thead>
+											<tbody>
+												<c:choose>
+													<c:when test="${not empty requestScope.info}">
+														<c:forEach var="staff" items="${requestScope.info}">
+															<tr>
+
+																<td>${staff.eid }</td>
+																<td>${staff.preJob }</td>
+																<td>${staff.preDept}</td>
+																<td>${staff.nextJob}</td>
+																<td>${staff.nextDept}</td>
+																<td>${staff.date}</td>
+																<td>${staff.PS}</td>
+
+															</tr>
+														</c:forEach>
+													</c:when>
+													<c:otherwise>
+														<tr>
+															<td colspan="3"></td>
+														</tr>
+													</c:otherwise>
+												</c:choose>
+											</tbody>
+
+											<input type="submit" value="显示所有调动信息" />
+										</table>
+									</form>
+									<form action="/hrms/AddPtrans" method="post">
+										新增调动：<input type="text" placeholder="工号" name="eid" />
+												<input type="text" placeholder="调动前岗位" name="preJob" />
+												
+												<input type="text" placeholder="调动后岗位" name="nextJob" />
+												
+												<input type="text" placeholder="日期" name="date" />
+												<input type="text" placeholder="备注" name="PS" />
+												<input type="submit" value="提交"></input>
+
+												<c:choose>
+													<c:when test="${not empty successA }">
+														<c:out value="提交成功！点击“显示所有岗位的信息”可查看" />
+													</c:when>
+													<c:otherwise></c:otherwise>
+												</c:choose>
 									</form>
 									<div class="fanye">
 										<p class="fytip">Showing 1 to 10 of 12 entries</p>

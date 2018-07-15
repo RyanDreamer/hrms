@@ -33,9 +33,9 @@ private BaseDao baseDao;
 				String predept = rs.getString("predept");
 				String nextdept = rs.getString("nextdept");
 				String date = rs.getString("date");
-				String pS = rs.getString("pS");
+				String PS = rs.getString("PS");
 				
-				PTrans emp = new PTrans(eid, prejob, nextjob, predept, nextdept, date, pS);
+				PTrans emp = new PTrans(eid, prejob, nextjob, predept, nextdept, date, PS);
 				list.add(emp);
 			}
 		} catch (SQLException e) {
@@ -76,7 +76,7 @@ private BaseDao baseDao;
 
 
 	@Override
-	public int addPTrans(int eid, int prejob, int nextjob, String predept, String nextdept, String date, String pS) {
+	public int addPTrans(int eid, int prejob, int nextjob, String predept, String nextdept, String date, String PS) {
 		// TODO Auto-generated method stub
         baseDao = new BaseDao();
 		
@@ -93,7 +93,7 @@ private BaseDao baseDao;
 		list.add(predept);
 		list.add(nextdept);
 		list.add(date);
-		list.add(pS);
+		list.add(PS);
 		result = baseDao.executeUpdate(sql, list);
 		
 		//打印结果信息
@@ -142,11 +142,11 @@ private BaseDao baseDao;
 	 * 更新操作
 	 */
 	@Override
-	public int updatePTrans(int eid, int prejob, int nextjob, String predept, String nextdept, String date, String pS) {
+	public int updatePTrans(int eid, int prejob, int nextjob, String predept, String nextdept, String date, String PS) {
 		int result = 0;
 		//先删再插入
 		rmPTrans(eid);
-		result = addPTrans(eid, prejob, nextjob, predept, nextdept, date,  pS);
+		result = addPTrans(eid, prejob, nextjob, predept, nextdept, date,  PS);
 		
 		return result;
 		
