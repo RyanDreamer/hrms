@@ -120,6 +120,7 @@
 									<div class="clear"></div>
 								</div>
 								<div id="tabCot_product_1" class="tabCot">
+									<form action="/ShowPtrans" method="post">
 									<table class="tabindex" width="100%" border="0" cellpadding="0"
 										cellspacing="0">
 										<tr>
@@ -168,8 +169,9 @@
 											<td class="czcol" bgcolor="#FFFFFF"><a href="#">修改信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
 												href="#">查看</a></td>
 										</tr>
-
+0
 									</table>
+									</form>
 									<div class="fanye">
 										<p class="fytip">Showing 1 to 10 of 12 entries</p>
 										<div class="yem">

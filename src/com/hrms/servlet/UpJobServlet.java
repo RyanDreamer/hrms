@@ -1,8 +1,6 @@
 package com.hrms.servlet;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,13 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hrms.dao.IJobDao;
 import com.hrms.dao.impl.JobDaoImpl;
-import com.hrms.entity.Job;
 
 /**
- * Servlet implementation class AddJobServlet
+ * Servlet implementation class UpJobServlet
  */
-//@WebServlet("/AddJobServlet")
-public class AddJobServlet extends HttpServlet {
+//@WebServlet("/UpJobServlet")
+public class UpJobServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -34,21 +31,31 @@ public class AddJobServlet extends HttpServlet {
 		Integer jid = Integer.parseInt(request.getParameter("jid"));
 		String title = request.getParameter("title");
 		String dept = request.getParameter("dept");
-		Integer countDemand = Integer.parseInt(request.getParameter("countDemand"));
-		Integer countReal = Integer.parseInt(request.getParameter("countReal"));
-		Integer salary = Integer.parseInt(request.getParameter("salary"));
-		if (jid!=null && title!=null && dept!=null 
-				&& countReal!=null && countDemand!=null
-				&& salary!=null) {
-			result = emp.addJob(jid, title, dept, countDemand, countReal, salary);
+		String countDemand = request.getParameter("countDemand");
+		String countReal = request.getParameter("countReal");
+		String salary = request.getParameter("salary");
+		if (title!=null) {
+			result += emp.updateJob(jid, "title", title);
+		}
+		if (dept!=null) {
+			result += emp.updateJob(jid, "dept", dept);
+		}
+		if (countDemand!=null) {
+			result += emp.updateJob(jid, "countDemand", countDemand);
+		}
+		if (countReal!=null) {
+			result += emp.updateJob(jid, "countReal", countReal);
+		}
+		if (salary!=null) {
+			result += emp.updateJob(jid, "salary", salary);
 		}
 			
 		//如果添加成功，则返回成功提示
-		if (result == 1) {
-			request.setAttribute("successA", "1");
+		if (result != 0) {
+			request.setAttribute("successU", "1");
 		}
 		else {
-			request.setAttribute("successA", null);
+			request.setAttribute("successU", null);
 		}
 		
 		request.getRequestDispatcher("admin/job.jsp").forward(request, response);

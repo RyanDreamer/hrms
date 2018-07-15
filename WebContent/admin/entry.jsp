@@ -14,7 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="人力资源管理平台" />
 <title>入职管理</title>
-<link type="text/css" rel="stylesheet" href="css/css.css" />
+<link type="text/css" rel="stylesheet" href="/hrms/admin/css/css.css" />
 </head>
 <body>
 
@@ -22,7 +22,7 @@
 
 		<div class="header">
 			<div class="top">
-				<img class="logo" src="images/logo.jpg" />
+				<img class="logo" src="/hrms/admin/images/logo.jpg" />
 				<ul class="nav">
 					<li><a href="/hrms/admin/main.jsp">首页</a></li>
 					<li><a href="/hrms/admin/dept.jsp">部门管理</a></li>
@@ -45,7 +45,7 @@
 			<div class="leftbar">
 
 				<div class="lm01">
-					<img class="peptx" src="images/b.jpg" />
+					<img class="peptx" src="/hrms/admin/images/b.jpg" />
 					<div class="pepdet">
 						<p class="pepname">周云瑞</p>
 						<p>周云瑞</p>
@@ -57,7 +57,7 @@
 
 				<div class="lm02">
 					<div class="title">
-						<img class="icon" src="images/dataicon.jpg" />
+						<img class="icon" src="/hrms/admin/images/dataicon.jpg" />
 						<h2>日历</h2>
 					</div>
 					<a
@@ -67,7 +67,7 @@
 				<div class="lm03">
 					<div class="title">
 						<img style="padding-right: 5px;" class="icon"
-							src="images/weaicon.jpg" />
+							src="/hrms/admin/images/weaicon.jpg" />
 						<h2>天气</h2>
 					</div>
 					<a href="http://www.weather.com.cn/weather/101120201.shtml">点击查看天气</a>
@@ -91,7 +91,7 @@
 
 				<div class="rig_lm03">
 					<div class="title">
-						<img src="images/listicon.jpg" class="icon"
+						<img src="/hrms/admin/images/listicon.jpg" class="icon"
 							style="padding-top: 13px;">
 						<h2>企业介绍</h2>
 					</div>
@@ -99,7 +99,7 @@
 				</div>
 				<div class="rig_lm03">
 					<div class="title">
-						<img src="images/listicon.jpg" class="icon"
+						<img src="/hrms/admin/images/listicon.jpg" class="icon"
 							style="padding-top: 13px;">
 						<h2>员工入职</h2>
 					</div>
@@ -108,39 +108,61 @@
 							<div id="tabCot_product" class="zhutitab">
 
 								<div id="tabCot_product_1" class="tabCot">
-									、
-									<form action="/hrms/EntryServlet" method="post">
+
+									<form action="/hrms/ShowEntry" method="post">
+										<input type="submit" value="显示所有入职信息" />
 										<table class="tabindex" width="100%" border="0"
 											cellpadding="0" cellspacing="0">
-											<tr>
-												<th width="22%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">工号</span><span class="xila">&or;</span></th>
-												<th width="21%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">所属部门</span><span class="xila">&or;</span></th>
-												<th width="22%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">职位</span><span class="xila">&or;</span></th>
-												<th width="21%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">入职时间</span><span class="xila">&or;</span></th>
-												<th width="7%" bgcolor="#f8f8f8" scope="col"><span
-													class="titlab">评分</span><span class="xila">&or;</span></th>
-												<th width="19%" bgcolor="#f8f8f8" scope="col">操作</th>
-											</tr>
-											<tr>
-												<td bgcolor="#FFFFFF"><input type="text" value=""
-													name="eid" /></td>
-												<td class="datacol" bgcolor="#FFFFFF"><input
-													type="text" value="" name="dept" /></td>
-												<td bgcolor="#FFFFFF"><input type="text" value=""
-													name="jid" /></td>
-												<td bgcolor="#FFFFFF"><input type="text" value=""
-													name="date" /></td>
-												<td class="yccol" bgcolor="#FFFFFF">100</td>
-												<td class="czcol" bgcolor="#FFFFFF"><a href="#">修改信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-													href="#">查看</a></td>
-											</tr>
-										</table>
-										<input type="submit" value="提交" />
+											<thead>
+												<tr>
+													<th width="25%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">工号</span><span class="xila">&or;</span></th>
+													<th width="25%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">所属部门</span><span class="xila">&or;</span></th>
+													<th width="25%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">职位</span><span class="xila">&or;</span></th>
+													<th width="25%" bgcolor="#f8f8f8" scope="col"><span
+														class="titlab">入职时间</span><span class="xila">&or;</span></th>
 
+												</tr>
+											</thead>
+											<tbody>
+												<c:choose>
+													<c:when test="${not empty requestScope.list}">
+														<c:forEach var="staff" items="${requestScope.list}">
+															<tr>
+
+																<td>${staff.eid }</td>
+																<td>${staff.dept}</td>
+																<td>${staff.jid}</td>
+																<td>${staff.date}</td>
+
+															</tr>
+														</c:forEach>
+													</c:when>
+													<c:otherwise>
+														<tr>
+															<td colspan="3"></td>
+														</tr>
+													</c:otherwise>
+												</c:choose>
+											</tbody>
+										</table>
+
+
+									</form>
+									<form action="/hrms/EntryServlet" method="post">
+										<input type="text" value="" name="eid" placeholder="工号"/> 
+										<input type="text" value="" name="dept" placeholder="所属部门"/> 
+										<input type="text" value="" name="jid" placeholder="岗位号"/> 
+										<input type="text" value="" name="date" placeholder="日期"/> 
+										<input type="submit" value="提交" />
+										<c:choose>
+											<c:when test="${not empty successA }">
+												<c:out value="提交成功！点击“显示所有入职的信息”可查看" />
+											</c:when>
+											<c:otherwise></c:otherwise>
+										</c:choose>
 									</form>
 									<div class="fanye">
 										<p class="fytip">Showing 1 to 10 of 12 entries</p>
@@ -157,7 +179,7 @@
 									</div>
 								</div>
 								<script language="JavaScript" type="text/javascript"
-									src="js/tab.js"></script>
+									src="/hrms/admin/js/tab.js"></script>
 							</div>
 						</div>
 					</div>

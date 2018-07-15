@@ -175,7 +175,22 @@
 												 <input type="text" placeholder="薪酬" name="salary" /> 
 												 <input type="submit" value="提交" />
 												 <c:choose>
-												 	<c:when test="${not empty success }">
+												 	<c:when test="${not empty successA }">
+												 		<c:out value="提交成功！点击“显示所有岗位的信息”可查看"/>
+												 	</c:when>
+												 	<c:otherwise></c:otherwise>
+												 </c:choose>
+									</form>
+									<form action="/hrms/UpJobServlet" method="post">
+										 修改岗位：   <input type="text" placeholder="岗位号" name="jid" />
+												 <input type="text" placeholder="岗位名称" name="title" />
+												 <input type="text" placeholder="所属部门" name="dept" /> 
+												 <input type="text" placeholder="所需人数" name="countDemand" /> 
+												 <input type="text" placeholder="实际人数" name="countReal" /> 
+												 <input type="text" placeholder="薪酬" name="salary" /> 
+												 <input type="submit" value="提交" />
+												 <c:choose>
+												 	<c:when test="${not empty successU }">
 												 		<c:out value="提交成功！点击“显示所有岗位的信息”可查看"/>
 												 	</c:when>
 												 	<c:otherwise></c:otherwise>
@@ -185,7 +200,7 @@
 										 删除岗位：   <input type="text" placeholder="岗位号" name="jid" />
 												 <input type="submit" value="提交" />
 												 <c:choose>
-												 	<c:when test="${not empty success }">
+												 	<c:when test="${not empty successR }">
 												 		<c:out value="提交成功！点击“显示所有岗位的信息”可查看"/>
 												 	</c:when>
 												 	<c:otherwise></c:otherwise>

@@ -17,8 +17,8 @@
 <link type="text/css" rel="stylesheet" href="/hrms/admin/css/css.css" />
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-	<script type="text/javascript"
-		src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
+<script type="text/javascript"
+	src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
 
 </head>
 <body>
@@ -114,8 +114,8 @@
 									</ul>
 									<p class="shent">
 										<span>Show entries: </span> <input style="width: 30px;"
-											type="text" value="10"> <img src="/hrms/admin/images/sz.jpg"
-											class="icon" style="">
+											type="text" value="10"> <img
+											src="/hrms/admin/images/sz.jpg" class="icon" style="">
 									</p>
 									<div class="clear"></div>
 								</div>
@@ -126,7 +126,7 @@
 									<table class="tabindex" width="100%" border="0" cellpadding="0"
 										cellspacing="0" id="myTable">
 										<form action="/hrms/ShowEmployee" method="post">
-											<input type="submit" value="显示所有员工的信息" align="top"/>
+											<input type="submit" value="显示所有员工的信息" align="top" />
 										</form>
 										<thead>
 											<tr>
@@ -178,14 +178,64 @@
 												<c:otherwise>
 													<tr>
 														<td colspan="3"></td>
-														
-														
+
+
 													</tr>
 												</c:otherwise>
 											</c:choose>
 										</tbody>
 									</table>
-
+									<form action="/hrms/AddEmployee" method="post">
+									 添加员工：   	 <input type="text" placeholder="工号" name="eid" />
+												 <input type="text" placeholder="姓名" name="name" />
+												 <input type="text" placeholder="年龄" name="age" /> 
+												 <input type="text" placeholder="性别" name="sex" /> 
+												 <input type="text" placeholder="籍贯" name="hometown" /> 
+												 <input type="text" placeholder="原职业" name="oldJob" /> 
+												 <input type="text" placeholder="工作年数" name="experience" /> 
+												 <input type="text" placeholder="学历" name="education" /> 
+												 <input type="text" placeholder="是否通过cet4" name="cet4" /> 
+												 <input type="text" placeholder="家庭成员人数" name="family" /> 
+												 <input type="text" placeholder="密码" name="password" /> 
+												 <input type="submit" value="提交" />
+												 <c:choose>
+												 	<c:when test="${not empty successA }">
+												 		<c:out value="提交成功！点击“显示所有员工的信息”可查看"/>
+												 	</c:when>
+												 	<c:otherwise></c:otherwise>
+												 </c:choose>
+									</form>
+									<form action="/hrms/UpEmployee" method="post">
+									修改员工：   	 <input type="text" placeholder="工号" name="eid" />
+												 <input type="text" placeholder="姓名" name="name" />
+												 <input type="text" placeholder="年龄" name="age" /> 
+												 <input type="text" placeholder="性别" name="sex" /> 
+												 <input type="text" placeholder="籍贯" name="hometown" /> 
+												 <input type="text" placeholder="原职业" name="oldJob" /> 
+												 <input type="text" placeholder="工作年数" name="experience" /> 
+												 <input type="text" placeholder="学历" name="education" /> 
+												 <input type="text" placeholder="是否通过cet4" name="cet4" /> 
+												 <input type="text" placeholder="家庭成员人数" name="family" /> 
+												 <input type="text" placeholder="密码" name="password" /> 
+												 <input type="submit" value="提交" />
+												 <c:choose>
+												 	<c:when test="${not empty successU }">
+												 		<c:out value="提交成功！点击“显示所有岗位的信息”可查看"/>
+												 	</c:when>
+												 	<c:otherwise></c:otherwise>
+												 </c:choose>
+									</form>
+									<form action="/hrms/RmEmployee" method="post">
+									删除员工：   	 <input type="text" placeholder="工号" name="eid" />
+												 
+												 <input type="submit" value="提交" />
+												 <c:choose>
+												 	<c:when test="${not empty successR }">
+												 		<c:out value="提交成功！点击“显示所有岗位的信息”可查看"/>
+												 	</c:when>
+												 	<c:otherwise></c:otherwise>
+												 </c:choose>
+									</form>
 									<div class="fanye">
 										<p class="fytip">Showing 1 to 10 of 12 entries</p>
 										<div class="yem">

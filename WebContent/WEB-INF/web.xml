@@ -57,6 +57,22 @@
     <servlet-name>EntryServlet</servlet-name>
     <url-pattern>/EntryServlet</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>ShowEntry</servlet-name>
+    <servlet-class>com.hrms.servlet.ShowEntry</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowEntry</servlet-name>
+    <url-pattern>/ShowEntry</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>JobServlet</servlet-name>
     <servlet-class>com.hrms.servlet.JobServlet</servlet-class>
@@ -81,8 +97,6 @@
     <servlet-name>AddJobServlet</servlet-name>
     <url-pattern>/AddJobServlet</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <servlet-name>RmJobServlet</servlet-name>
     <servlet-class>com.hrms.servlet.RmJobServlet</servlet-class>
@@ -94,5 +108,53 @@
   <servlet-mapping>
     <servlet-name>RmJobServlet</servlet-name>
     <url-pattern>/RmJobServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpJobServlet</servlet-name>
+    <servlet-class>com.hrms.servlet.UpJobServlet</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpJobServlet</servlet-name>
+    <url-pattern>/UpJobServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddEmployee</servlet-name>
+    <servlet-class>com.hrms.servlet.AddEmployee</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEmployee</servlet-name>
+    <url-pattern>/AddEmployee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpEmployee</servlet-name>
+    <servlet-class>com.hrms.servlet.UpEmployee</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpEmployee</servlet-name>
+    <url-pattern>/UpEmployee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RmEmployee</servlet-name>
+    <servlet-class>com.hrms.servlet.RmEmployee</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RmEmployee</servlet-name>
+    <url-pattern>/RmEmployee</url-pattern>
   </servlet-mapping>
 </web-app>

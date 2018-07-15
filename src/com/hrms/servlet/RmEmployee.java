@@ -1,23 +1,20 @@
 package com.hrms.servlet;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hrms.dao.IJobDao;
-import com.hrms.dao.impl.JobDaoImpl;
-import com.hrms.entity.Job;
+import com.hrms.dao.IEmployeeInfoDao;
+import com.hrms.dao.impl.EmployeeInfoDaoImpl;
 
 /**
- * Servlet implementation class RmJobServlet
+ * Servlet implementation class RmEmployee
  */
-//@WebServlet("/RmJobServlet")
-public class RmJobServlet extends HttpServlet {
+//@WebServlet("/RmEmployee")
+public class RmEmployee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -28,16 +25,14 @@ public class RmJobServlet extends HttpServlet {
 		
 		int result=0;
 		
-		IJobDao emp = new JobDaoImpl();
-		
-		//如果信息不为空，则删除岗位
-		Integer jid = Integer.parseInt(request.getParameter("jid"));
-		
-		if (jid!=null) {
-			result = emp.rmJob(jid);
+		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
+		Integer eid = Integer.parseInt(request.getParameter("eid"));
+		if (eid!=null) {
+			result = emp.rmEmployee(eid);
 		}
-			
-		//如果删除成功，则返回成功提示
+		
+		
+		//如果添加成功，则返回成功提示
 		if (result == 1) {
 			request.setAttribute("successR", "1");
 		}
@@ -45,7 +40,7 @@ public class RmJobServlet extends HttpServlet {
 			request.setAttribute("successR", null);
 		}
 		
-		request.getRequestDispatcher("admin/job.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/employee.jsp").forward(request, response);
 	}
 
 }
