@@ -44,10 +44,10 @@
   	
     <div class="lm01"> <img class="peptx" src="/hrms/admin/images/b.jpg" />
       <div class="pepdet">
-        <p class="pepname">周云瑞</p>
-        <p>周云瑞</p>
-        <p>火柴人董事会</p>
-        <a href="www.baidu.com">修改个人信息</a>
+        <p class="pepname">
+        ${uname }  
+		</p>
+        
       </div>
       <div class="clear"></div>
     </div>
@@ -83,7 +83,7 @@
     
     <div class="adtip">
       <div class="tip">
-        <p class="goom">你好，周云瑞！</p>
+        <p class="goom">你好！${uname } </p>
          </div>
      
     </div>
@@ -94,15 +94,13 @@
           <div id="tabCot_product" class="zhutitab">
             <div class="tabContainer">
              
-              <p class="shent"><span>Show entries: </span>
-                <input style="width:30px;" type="text" value="10">
-                <img src="/hrms/admin/images/sz.jpg" class="icon" style=""></p>
+              
               <div class="clear"></div>
             </div>
             <div id="tabCot_product_1" class="tabCot" >
               <form action="/hrms/ShowPCon" method="post">
               		<input type="submit" value="显示所有试用期合同" />
-                    <table class="tabindex" width="100%" border="0"
+                    <table class="tabindex" width="80%" border="0"
                       cellpadding="0" cellspacing="0">
                       <thead>
                         <tr>
@@ -115,11 +113,11 @@
                             <span class="xila">&or;</span>
                           </th>
                           
-                          <th width="20%" bgcolor="#f8f8f8" scope="col">
+                          <th width="10%" bgcolor="#f8f8f8" scope="col">
                             <span class="titlab">开始时间</span>
                             <span class="xila">&or;</span>
                           </th>
-                          <th width="20%" bgcolor="#f8f8f8" scope="col">
+                          <th width="10%" bgcolor="#f8f8f8" scope="col">
                             <span class="titlab">结束时间</span>
                             <span class="xila">&or;</span>
                           </th>

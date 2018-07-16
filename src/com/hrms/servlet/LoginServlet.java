@@ -13,8 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hrms.dao.IEmployeeInfoDao;
+import com.hrms.dao.IJobDao;
 import com.hrms.dao.impl.EmployeeInfoDaoImpl;
+import com.hrms.dao.impl.JobDaoImpl;
 import com.hrms.entity.EmployeeInfo;
+import com.hrms.entity.Job;
 
 /**
  * Servlet implementation class LoginServlet
@@ -56,6 +59,56 @@ public class LoginServlet extends HttpServlet {
 		IEmployeeInfoDao emp = new EmployeeInfoDaoImpl();
 		list = emp.findEmployee("eid", eid);
 		if (password.equals(list.get(0).getPassword())) {
+			//将用户信息传入页面
+			String uname = list.get(0).getName();
+			request.getSession().setAttribute("uname", uname);
+			
+			IJobDao emp1 = new JobDaoImpl();
+
+			List<Job> list1 = null;
+			List<Job> list2 = null;
+			List<Job> list3 = null;
+			List<Job> list4 = null;
+			List<Job> list5 = null;
+			List<Job> list6 = null;
+			list1 = emp1.findJob("dept", "研发部");
+			list2 = emp1.findJob("dept", "质检部");
+			list3 = emp1.findJob("dept", "销售部");
+			list4 = emp1.findJob("dept", "行政部");
+			list5 = emp1.findJob("dept", "人事部");
+			list6 = emp1.findJob("dept", "财务部");
+			int developementNum = 0;
+			int qualityNum = 0;
+			int salesNum = 0;
+			int adminisNum = 0;
+			int personnelNum = 0;
+			int financeNum = 0;
+			for (int i = 0; i < list1.size(); i++) {
+				developementNum += list1.get(i).getCountReal();
+			}
+			for (int i = 0; i < list2.size(); i++) {
+				qualityNum += list2.get(i).getCountReal();
+			}
+			for (int i = 0; i < list3.size(); i++) {
+				salesNum += list3.get(i).getCountReal();
+			}
+			for (int i = 0; i < list4.size(); i++) {
+				adminisNum += list4.get(i).getCountReal();
+			}
+			for (int i = 0; i < list5.size(); i++) {
+				personnelNum += list5.get(i).getCountReal();
+			}
+			for (int i = 0; i < list6.size(); i++) {
+				financeNum += list6.get(i).getCountReal();
+			}
+			request.getSession().setAttribute("developementNum", developementNum);
+			request.getSession().setAttribute("qualityNum", qualityNum);
+			request.getSession().setAttribute("salesNum", salesNum);
+			request.getSession().setAttribute("adminisNum", adminisNum);
+			request.getSession().setAttribute("personnelNum", personnelNum);
+			request.getSession().setAttribute("financeNum", financeNum);
+			
+			
 			request.setAttribute("success", null);
 			response.sendRedirect("/hrms/admin/main.jsp");//匹配时跳转
 		}

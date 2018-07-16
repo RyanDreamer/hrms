@@ -44,9 +44,11 @@
   	
     <div class="lm01"> <img class="peptx" src="/hrms/admin/images/b.jpg" />
       <div class="pepdet">
-        <p class="pepname">周云瑞</p>
-        <p>火柴人董事会</p>
-        <a href="www.baidu.com">修改个人信息</a>
+        <p class="pepname">
+        ${uname }  
+		</p>
+        
+        
       </div>
       <div class="clear"></div>
     </div>
@@ -84,7 +86,7 @@
     
     <div class="adtip">
       <div class="tip">
-        <p class="goom">你好，周云瑞！</p>
+        <p class="goom">你好！${uname } </p>
         
       </div>
      
@@ -99,33 +101,38 @@
         <div class="det_inner">
           <div class="scordeti">
             <ul>
-              <li>
-                <p class="ywc">55</p>
-                <h3>研发部</h3>
-              </li>
-              <li>
-                <p class="wwc">43</p>
-                <h3>质检部</h3>
-              </li>
-              <li>
-                <p class="ycd">80</p>
-                <h3>销售部</h3>
-              </li>
-              <li>
-                <p class="ywc">70</p>
-                <h3>行政部</h3>
-              </li>
-              <li>
-                <p class="wwc">60</p>
-                <h3>人事部</h3>
-              </li>
-              <li>
-                <p class="wwc">50</p>
-                <h3>财务部</h3>
-              </li>	
-              
-            </ul>
-          </div>
+									<li><c:if test="${not empty developementNum }">
+											<p class="ywc">${developementNum }</p>
+										</c:if>
+										<h3>研发部</h3></li>
+
+									<li><c:if test="${not empty qualityNum }">
+											<p class="wwc">${qualityNum }</p>
+										</c:if>
+										<h3>质检部</h3></li>
+
+
+									<li><c:if test="${not empty salesNum }">
+											<p class="ycd">${salesNum }</p>
+										</c:if>
+										<h3>销售部</h3></li>
+
+									<li><c:if test="${not empty adminisNum }">
+											<p class="ywc">${adminisNum }</p>
+										</c:if>
+										<h3>行政部</h3></li>
+
+									<li><c:if test="${not empty personnelNum }">
+											<p class="wwc">${personnelNum }</p>
+										</c:if>
+										<h3>人事部</h3></li>
+
+									<li><c:if test="${not empty financeNum }">
+											<p class="wwc">${financeNum }</p>
+										</c:if>
+										<h3>财务部</h3></li>
+
+								</ul>          </div>
         </div>
       </div>
     </div>
@@ -139,29 +146,27 @@
           <div id="tabCot_product" class="zhutitab">
             <div class="tabContainer">
               <ul class="tabHead" id="tabCot_product-li-currentBtn-">
-                <li class="currentBtn"><a href="javascript:void(0)" title="空闲职位" rel="1">空闲职位</a><span class="grey_numb">12</span></li>
-                <li ><a href="javascript:void(0)" title="入职统计" rel="2">入职统计</a><span class="red_numb">2</span></li>
-                <li ><a href="javascript:void(0)" title="离职统计" rel="3">离职统计</a><span class="red_numb">5</span></li>
+                <li class="currentBtn"><a href="javascript:void(0)" title="空闲职位" rel="1">空闲职位</a></li>
+                <li ><a href="javascript:void(0)" title="入职统计" rel="2">入职统计</a></li>
+                <li ><a href="javascript:void(0)" title="离职统计" rel="3">离职统计</a></li>
               </ul>
-              <p class="shent"><span>Show entries: </span>
-                <input style="width:30px;" type="text" value="10">
-                <img src="/hrms/admin/images/sz.jpg" class="icon" style=""></p>
+              
               <div class="clear"></div>
             </div>
             <div id="tabCot_product_1" class="tabCot" >
               <form action="/hrms/EmptyJob" method="post">
 					<input type="submit" value="开始生成数据" align="left" />
-					<table class="tabindex" width="100%" border="0"
+					<table class="tabindex" width="80%" border="0"
 						cellpadding="0" cellspacing="0">
 						<thead>
 							<tr>
-								<th width="20%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="15%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">岗位代号</span><span class="xila">&or;</span></th>
-								<th width="20%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="15%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">岗位名称</span><span class="xila">&or;</span></th>
-								<th width="20%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="15%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">所属部门</span><span class="xila">&or;</span></th>
-								<th width="20%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="15%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">岗位空缺人数</span><span class="xila">&or;</span></th>
 								
 								<th width="20%" bgcolor="#f8f8f8" scope="col"><span
@@ -193,33 +198,21 @@
 						</tbody>
 					</table>
 				</form>
-              <div class="fanye">
-                <p class="fytip">Showing 1 to 10 of 12 entries</p>
-                <div class="yem">
-                  <ul>
-                    <li><a href="#">First</a></li>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="sellify"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">&gt;</a></li>
-                    <li><a href="#">Last</a></li>
-                  </ul>
-                </div>
-              </div>
+              
             </div>
             <div id="tabCot_product_2" class="tabCot"  style="display: none;">
             	<form action="/hrms/CountEntry" method="post">
             		起始日期-截止日期:<input type="text" name="start"/>-
             		<input type="text" name="end"/><br />
 					<input type="submit" value="生成入职信息" />
-					<table class="tabindex" width="100%" border="0"
+					<table class="tabindex" width="80%" border="0"
 						cellpadding="0" cellspacing="0">
 						<thead>
 							<tr>
-								<th width="50%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="40%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">岗位号</span><span class="xila">&or;</span></th>
 								
-								<th width="50%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="40%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">入职人数</span><span class="xila">&or;</span></th>
 								
 
@@ -259,14 +252,14 @@
             		起始日期-截止日期:<input type="text" name="start"/>-
             		<input type="text" name="end"/><br />
 					<input type="submit" value="生成离职信息" />
-					<table class="tabindex" width="100%" border="0"
+					<table class="tabindex" width="80%" border="0"
 						cellpadding="0" cellspacing="0">
 						<thead>
 							<tr>
-								<th width="50%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="40%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">岗位号</span><span class="xila">&or;</span></th>
 								
-								<th width="50%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="40%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">离职人数</span><span class="xila">&or;</span></th>
 								
 

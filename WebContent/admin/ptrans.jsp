@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -44,10 +45,10 @@
   	
     <div class="lm01"> <img class="peptx" src="/hrms/admin/images/b.jpg" />
       <div class="pepdet">
-        <p class="pepname">周云瑞</p>
-        <p>周云瑞</p>
-        <p>火柴人董事会</p>
-        <a href="www.baidu.com">修改个人信息</a>
+        <p class="pepname">
+        ${uname }  
+		</p>
+     
       </div>
       <div class="clear"></div>
     </div>
@@ -83,7 +84,7 @@
     
     <div class="adtip">
       <div class="tip">
-        <p class="goom">你好，周云瑞！</p>
+        <p class="goom">你好！${uname } </p>
          </div>
      
     </div>
@@ -95,31 +96,31 @@
           <div id="tabCot_product" class="zhutitab">
             <div class="tabContainer">
               
-              <p class="shent"><span>Show entries: </span>
+              
                 <input style="width:30px;" type="text" value="10">
                 <img src="/hrms/admin/images/sz.jpg" class="icon" style=""></p>
               <div class="clear"></div>
             </div>
             <div id="tabCot_product_1" class="tabCot" >
               <form action="/hrms/ShowPtrans" method="post">
-                    <table class="tabindex" width="100%" border="0"
+                    <table class="tabindex" width="80%" border="0"
                       cellpadding="0" cellspacing="0">
                       <thead>
                         <tr>
-                          <th width="15%" bgcolor="#f8f8f8" scope="col">
+                          <th width="10%" bgcolor="#f8f8f8" scope="col">
                             <span class="titlab">员工号</span>
                             <span class="xila">&or;</span>
                           </th>
-                          <th width="15%" bgcolor="#f8f8f8" scope="col">
+                          <th width="10%" bgcolor="#f8f8f8" scope="col">
                             <span class="titlab">调动前岗位</span>
                             <span class="xila">&or;</span>
                           </th>
                           
-                          <th width="15%" bgcolor="#f8f8f8" scope="col">
+                          <th width="10%" bgcolor="#f8f8f8" scope="col">
                             <span class="titlab">调动前部门</span>
                             <span class="xila">&or;</span>
                           </th>
-                          <th width="15%" bgcolor="#f8f8f8" scope="col">
+                          <th width="10%" bgcolor="#f8f8f8" scope="col">
                             <span class="titlab">调动后岗位</span>
                             <span class="xila">&or;</span>
                           </th>
@@ -183,19 +184,7 @@
                           <c:otherwise></c:otherwise>
                         </c:choose>
                   </form>
-              <div class="fanye">
-                <p class="fytip">Showing 1 to 10 of 12 entries</p>
-                <div class="yem">
-                  <ul>
-                    <li><a href="#">First</a></li>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="sellify"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">&gt;</a></li>
-                    <li><a href="#">Last</a></li>
-                  </ul>
-                </div>
-              </div>
+              
             </div>
             <div id="tabCot_product_2" class="tabCot"  style="display: none;"> 2222222222 </div>
             <div id="tabCot_product_3" class="tabCot"  style="display: none;"> 3333333333 </div>

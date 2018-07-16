@@ -44,10 +44,10 @@
   	
     <div class="lm01"> <img class="peptx" src="/hrms/admin/images/b.jpg" />
       <div class="pepdet">
-        <p class="pepname">周云瑞</p>
-        <p>周云瑞</p>
-        <p>火柴人董事会</p>
-        <a href="www.baidu.com">修改个人信息</a>
+        <p class="pepname">
+        ${uname }  
+		</p>
+        
       </div>
       <div class="clear"></div>
     </div>
@@ -82,7 +82,7 @@
     
     <div class="adtip">
       <div class="tip">
-        <p class="goom">你好，周云瑞！</p>
+        <p class="goom">你好！${uname } </p>
        </div>
     </div>
     
@@ -97,17 +97,17 @@
             <div id="tabCot_product_1" class="tabCot" >
               		<form action="/hrms/ShowEntry" method="post">
 					<input type="submit" value="显示所有入职信息" />
-					<table class="tabindex" width="100%" border="0"
+					<table class="tabindex" width="80%" border="0"
 						cellpadding="0" cellspacing="0">
 						<thead>
 							<tr>
-								<th width="25%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="20%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">工号</span><span class="xila">&or;</span></th>
-								<th width="25%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="20%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">所属部门</span><span class="xila">&or;</span></th>
-								<th width="25%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="20%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">职位</span><span class="xila">&or;</span></th>
-								<th width="25%" bgcolor="#f8f8f8" scope="col"><span
+								<th width="20%" bgcolor="#f8f8f8" scope="col"><span
 									class="titlab">入职时间</span><span class="xila">&or;</span></th>
 
 							</tr>
@@ -150,19 +150,7 @@
 						<c:otherwise></c:otherwise>
 					</c:choose>
 				</form>
-              <div class="fanye">
-                <p class="fytip">Showing 1 to 10 of 12 entries</p>
-                <div class="yem">
-                  <ul>
-                    <li><a href="#">First</a></li>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="sellify"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">&gt;</a></li>
-                    <li><a href="#">Last</a></li>
-                  </ul>
-                </div>
-              </div>
+              
             </div>
             <script language="JavaScript" type="text/javascript" src="/hrms/admin/js/tab.js"></script> 
           </div>
