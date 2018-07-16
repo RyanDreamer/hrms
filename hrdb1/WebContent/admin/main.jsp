@@ -7,6 +7,7 @@
 			+ path + "/";
 %>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -124,35 +125,56 @@
 					</div>
 					<div class="detail">
 						<div class="det_inner">
+
 							<div class="scordeti">
+
 								<ul>
-									<li>
-										<p class="ywc">55</p>
-										<h3>研发部</h3>
+									<li><c:if
+											test="${not empty developementNum }">
+											<p class="ywc">${developementNum }</p>
+										</c:if>
+										<h3>研发部</h3> 
 									</li>
-									<li>
-										<p class="wwc">43</p>
+									
+									<li><c:if test="${not empty qualityNum }">
+										<p class="wwc" >${qualityNum }</p>
+									</c:if>
 										<h3>质检部</h3>
 									</li>
-									<li>
-										<p class="ycd">80</p>
+									
+									
+									<li><c:if test="${not empty salesNum }">
+											<p class="ycd" >${salesNum }</p>
+										</c:if>
 										<h3>销售部</h3>
+										
 									</li>
-									<li>
-										<p class="ywc">70</p>
+									
+									<li><c:if test="${not empty adminisNum }">
+											<p class="ywc" >${adminisNum }</p>
+										</c:if>
 										<h3>行政部</h3>
+										
 									</li>
-									<li>
-										<p class="wwc">60</p>
+									
+									<li><c:if test="${not empty personnelNum }">
+											<p class="wwc" >${personnelNum }</p>
+										</c:if>
 										<h3>人事部</h3>
+										
 									</li>
-									<li>
-										<p class="wwc">50</p>
+									
+									<li><c:if test="${not empty financeNum }">
+											<p class="wwc" >${financeNum }</p>
+										</c:if>
 										<h3>财务部</h3>
+										
 									</li>
 
 								</ul>
+
 							</div>
+
 						</div>
 					</div>
 				</div>
