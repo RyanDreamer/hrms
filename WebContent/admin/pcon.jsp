@@ -26,10 +26,10 @@
           <li><a href="/hrms/admin/dept.jsp">部门管理</a></li>
           <li><a href="/hrms/admin/job.jsp">岗位管理</a></li>
           <li><a href="/hrms/admin/employee.jsp">员工信息管理</a></li>
-          <li class="seleli"><a href="#">调动管理</a></li>
+          <li><a href="/hrms/admin/ptrans.jsp">调动管理</a></li>
           <li><a href="/hrms/admin/entry.jsp">入职管理</a></li>
           <li><a href="/hrms/admin/dimission.jsp">离职管理</a></li>
-        <li><a href="/hrms/admin/pcon.jsp">试用期合同</a></li>
+        <li class="seleli"><a href="#">试用期合同</a></li>
     </ul>
   </div>
 </div>
@@ -89,53 +89,47 @@
     </div>
     
     <div class="rig_lm03">
-      
       <div class="detail">
         <div class="inner03">
           <div id="tabCot_product" class="zhutitab">
             <div class="tabContainer">
-              
+             
               <p class="shent"><span>Show entries: </span>
                 <input style="width:30px;" type="text" value="10">
                 <img src="/hrms/admin/images/sz.jpg" class="icon" style=""></p>
               <div class="clear"></div>
             </div>
             <div id="tabCot_product_1" class="tabCot" >
-              <form action="/hrms/ShowPtrans" method="post">
+              <form action="/hrms/ShowPCon" method="post">
+              		<input type="submit" value="显示所有试用期合同" />
                     <table class="tabindex" width="100%" border="0"
                       cellpadding="0" cellspacing="0">
                       <thead>
                         <tr>
                           <th width="15%" bgcolor="#f8f8f8" scope="col">
+                            <span class="titlab">合同编号</span>
+                            <span class="xila">&or;</span>
+                          </th>
+                          <th width="15%" bgcolor="#f8f8f8" scope="col">
+                            <span class="titlab">试用期工资</span>
+                            <span class="xila">&or;</span>
+                          </th>
+                          
+                          <th width="20%" bgcolor="#f8f8f8" scope="col">
+                            <span class="titlab">开始时间</span>
+                            <span class="xila">&or;</span>
+                          </th>
+                          <th width="20%" bgcolor="#f8f8f8" scope="col">
+                            <span class="titlab">结束时间</span>
+                            <span class="xila">&or;</span>
+                          </th>
+                          <th width="15%" bgcolor="#f8f8f8" scope="col">
                             <span class="titlab">员工号</span>
                             <span class="xila">&or;</span>
                           </th>
                           <th width="15%" bgcolor="#f8f8f8" scope="col">
-                            <span class="titlab">调动前岗位</span>
+                            <span class="titlab">岗位号</span>
                             <span class="xila">&or;</span>
-                          </th>
-                          
-                          <th width="15%" bgcolor="#f8f8f8" scope="col">
-                            <span class="titlab">调动前部门</span>
-                            <span class="xila">&or;</span>
-                          </th>
-                          <th width="15%" bgcolor="#f8f8f8" scope="col">
-                            <span class="titlab">调动后岗位</span>
-                            <span class="xila">&or;</span>
-                          </th>
-                          <th width="10%" bgcolor="#f8f8f8" scope="col">
-                            <span class="titlab">调动后部门</span>
-                            <span class="xila">&or;</span>
-                          </th>
-                          <th width="10%" bgcolor="#f8f8f8" scope="col">
-                            <span class="titlab">调动日期</span>
-                            <span class="xila">&or;</span>
-                          </th>
-                          <th width="20%" bgcolor="#f8f8f8" scope="col">
-                            <span class="titlab">备注</span>
-                            <span class="xila">&or;</span>
-                          </th>
-
                         </tr>
                       </thead>
                       <tbody>
@@ -144,13 +138,12 @@
                             <c:forEach var="staff" items="${requestScope.info}">
                               <tr>
 
-                                <td>${staff.eid }</td>
-                                <td>${staff.preJob }</td>
-                                <td>${staff.preDept}</td>
-                                <td>${staff.nextJob}</td>
-                                <td>${staff.nextDept}</td>
-                                <td>${staff.date}</td>
-                                <td>${staff.PS}</td>
+                                <td>${staff.id }</td>
+                                <td>${staff.salary }</td>
+                                <td>${staff.startDate}</td>
+                                <td>${staff.deadline}</td>
+                                <td>${staff.eid}</td>
+                                <td>${staff.jid}</td>
 
                               </tr>
                             </c:forEach>
@@ -162,18 +155,17 @@
                           </c:otherwise>
                         </c:choose>
                       </tbody>
-
-                      <input type="submit" value="显示所有调动信息" />
                     </table>
                   </form>
-                  <form action="/hrms/AddPtrans" method="post">
-                    新增调动：<input type="text" placeholder="工号" name="eid" />
-                        <input type="text" placeholder="调动前岗位" name="preJob" />
+                  <form action="/hrms/AddPCon" method="post">
+                    新增合同：<input type="text" placeholder="合同编号" name="id" />
+                        <input type="text" placeholder="试用期工资" name="salary" />
                         
-                        <input type="text" placeholder="调动后岗位" name="nextJob" />
+                        <input type="text" placeholder="开始时间" name="startDate" />
                         
-                        <input type="text" placeholder="日期" name="date" />
-                        <input type="text" placeholder="备注" name="PS" />
+                        <input type="text" placeholder="结束时间" name="deadline" />
+                        <input type="text" placeholder="员工号" name="eid" />
+                        <input type="text" placeholder="岗位号" name="jid" />
                         <input type="submit" value="提交"></input>
 
                         <c:choose>
@@ -183,22 +175,9 @@
                           <c:otherwise></c:otherwise>
                         </c:choose>
                   </form>
-              <div class="fanye">
-                <p class="fytip">Showing 1 to 10 of 12 entries</p>
-                <div class="yem">
-                  <ul>
-                    <li><a href="#">First</a></li>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="sellify"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">&gt;</a></li>
-                    <li><a href="#">Last</a></li>
-                  </ul>
-                </div>
-              </div>
+              
             </div>
-            <div id="tabCot_product_2" class="tabCot"  style="display: none;"> 2222222222 </div>
-            <div id="tabCot_product_3" class="tabCot"  style="display: none;"> 3333333333 </div>
+            
             <script language="JavaScript" type="text/javascript" src="/hrms/admin/js/tab.js"></script> 
           </div>
         </div>

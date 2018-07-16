@@ -165,9 +165,7 @@
     <servlet-name>ShowPtrans</servlet-name>
     <url-pattern>/ShowPtrans</url-pattern>
   </servlet-mapping>
-  
-  
-    <servlet>
+  <servlet>
     <servlet-name>AddPtrans</servlet-name>
     <servlet-class>com.hrms.servlet.AddPtrans</servlet-class>
     <init-param>
@@ -179,9 +177,7 @@
     <servlet-name>AddPtrans</servlet-name>
     <url-pattern>/AddPtrans</url-pattern>
   </servlet-mapping>
-  
-  
-    <servlet>
+  <servlet>
     <servlet-name>AddDeptServlet</servlet-name>
     <servlet-class>com.hrms.servlet.AddDeptServlet</servlet-class>
     <init-param>
@@ -252,5 +248,66 @@
   <servlet-mapping>
     <servlet-name>ShowDimissionServlet</servlet-name>
     <url-pattern>/ShowDimissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowPCon</servlet-name>
+    <servlet-class>com.hrms.servlet.ShowPCon</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowPCon</servlet-name>
+    <url-pattern>/ShowPCon</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddPCon</servlet-name>
+    <servlet-class>com.hrms.servlet.AddPCon</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddPCon</servlet-name>
+    <url-pattern>/AddPCon</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EmptyJob</servlet-name>
+    <servlet-class>com.hrms.servlet.EmptyJob</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmptyJob</servlet-name>
+    <url-pattern>/EmptyJob</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CountEntry</servlet-name>
+    <servlet-class>com.hrms.servlet.CountEntry</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CountEntry</servlet-name>
+    <url-pattern>/CountEntry</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>CountDimission</servlet-name>
+    <servlet-class>com.hrms.servlet.CountDimission</servlet-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CountDimission</servlet-name>
+    <url-pattern>/CountDimission</url-pattern>
   </servlet-mapping>
 </web-app>

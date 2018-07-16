@@ -139,8 +139,8 @@
           <div id="tabCot_product" class="zhutitab">
             <div class="tabContainer">
               <ul class="tabHead" id="tabCot_product-li-currentBtn-">
-                <li class="currentBtn"><a href="javascript:void(0)" title="空闲职位" rel="1">空闲职位</a><span class="grey_numb">12</span></li>
-                <li ><a href="javascript:void(0)" title="入职统计" rel="2">入职统计</a><span class="red_numb">2</span></li>
+                <li ><a href="javascript:void(0)" title="空闲职位" rel="1">空闲职位</a><span class="grey_numb">12</span></li>
+                <li  class="currentBtn"><a href="javascript:void(0)" title="入职统计" rel="2">入职统计</a><span class="red_numb">2</span></li>
                 <li ><a href="javascript:void(0)" title="离职统计" rel="3">离职统计</a><span class="red_numb">5</span></li>
               </ul>
               <p class="shent"><span>Show entries: </span>
@@ -148,7 +148,7 @@
                 <img src="/hrms/admin/images/sz.jpg" class="icon" style=""></p>
               <div class="clear"></div>
             </div>
-            <div id="tabCot_product_1" class="tabCot" >
+            <div id="tabCot_product_1" class="tabCot" style="display:none">
               <form action="/hrms/EmptyJob" method="post">
 					<input type="submit" value="开始生成数据" align="left" />
 					<table class="tabindex" width="100%" border="0"
@@ -207,7 +207,7 @@
                 </div>
               </div>
             </div>
-            <div id="tabCot_product_2" class="tabCot"  style="display: none;">
+            <div id="tabCot_product_2" class="tabCot">
             	<form action="/hrms/CountEntry" method="post">
             		起始日期-截止日期:<input type="text" name="start"/>-
             		<input type="text" name="end"/><br />
@@ -254,8 +254,7 @@
 				</form>
 			 </div>
             <div id="tabCot_product_3" class="tabCot"  style="display: none;">
-            
-            	<form action="/hrms/CountDimission" method="post">
+            <form action="/hrms/CountDimission" method="post">
             		起始日期-截止日期:<input type="text" name="start"/>-
             		<input type="text" name="end"/><br />
 					<input type="submit" value="生成离职信息" />
@@ -299,7 +298,7 @@
 
 
 				</form>
-			</div>
+            </div>
             <script language="JavaScript" type="text/javascript" src="/hrms/admin/js/tab.js"></script> 
           </div>
         </div>

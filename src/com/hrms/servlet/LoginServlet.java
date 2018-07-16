@@ -64,5 +64,5 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("/login/index.jsp").forward(request,response);
 		}
 	}
-
+	
 }
