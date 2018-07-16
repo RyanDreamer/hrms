@@ -46,8 +46,10 @@
 				<div class="lm01">
 					<img class="peptx" src="/hrdb1/adminimages/b.jpg" />
 					<div class="pepdet">
-						<p class="pepname">周云瑞</p>
-						<p>周云瑞</p>
+						<p class="pepname">
+						${uname }
+						</p>
+
 						<p>火柴人董事会</p>
 						<a href="www.baidu.com">修改个人信息</a>
 					</div>
@@ -83,7 +85,11 @@
 
 				<div class="adtip">
 					<div class="tip">
-						<p class="goom">早上好，周云瑞！</p>
+						<p class="goom">
+							早上好，
+						
+							！
+						</p>
 						<p>
 							您目前有<span>15</span>条待办，<span>1</span>条调动通知，<span>1</span>条入职通知！
 						</p>
@@ -129,47 +135,36 @@
 							<div class="scordeti">
 
 								<ul>
-									<li><c:if
-											test="${not empty developementNum }">
+									<li><c:if test="${not empty developementNum }">
 											<p class="ywc">${developementNum }</p>
 										</c:if>
-										<h3>研发部</h3> 
-									</li>
-									
+										<h3>研发部</h3></li>
+
 									<li><c:if test="${not empty qualityNum }">
-										<p class="wwc" >${qualityNum }</p>
-									</c:if>
-										<h3>质检部</h3>
-									</li>
-									
-									
+											<p class="wwc">${qualityNum }</p>
+										</c:if>
+										<h3>质检部</h3></li>
+
+
 									<li><c:if test="${not empty salesNum }">
-											<p class="ycd" >${salesNum }</p>
+											<p class="ycd">${salesNum }</p>
 										</c:if>
-										<h3>销售部</h3>
-										
-									</li>
-									
+										<h3>销售部</h3></li>
+
 									<li><c:if test="${not empty adminisNum }">
-											<p class="ywc" >${adminisNum }</p>
+											<p class="ywc">${adminisNum }</p>
 										</c:if>
-										<h3>行政部</h3>
-										
-									</li>
-									
+										<h3>行政部</h3></li>
+
 									<li><c:if test="${not empty personnelNum }">
-											<p class="wwc" >${personnelNum }</p>
+											<p class="wwc">${personnelNum }</p>
 										</c:if>
-										<h3>人事部</h3>
-										
-									</li>
-									
+										<h3>人事部</h3></li>
+
 									<li><c:if test="${not empty financeNum }">
-											<p class="wwc" >${financeNum }</p>
+											<p class="wwc">${financeNum }</p>
 										</c:if>
-										<h3>财务部</h3>
-										
-									</li>
+										<h3>财务部</h3></li>
 
 								</ul>
 
